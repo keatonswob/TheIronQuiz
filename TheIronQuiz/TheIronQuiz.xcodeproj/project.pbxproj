@@ -13,6 +13,7 @@
 		188EC8421AD57D96002CDBA7 /* AnswerModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC8411AD57D96002CDBA7 /* AnswerModalViewController.m */; };
 		188EC8461AD57DC5002CDBA7 /* TIQCloudKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC8451AD57DC5002CDBA7 /* TIQCloudKit.m */; };
 		188EC8491AD57DD2002CDBA7 /* TIQCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC8481AD57DD2002CDBA7 /* TIQCoreData.m */; };
+		188EC84D1AD58151002CDBA7 /* TopicModalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */; };
 		5AD46E591AD56C470053E89A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD46E581AD56C470053E89A /* main.m */; };
 		5AD46E5C1AD56C470053E89A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD46E5B1AD56C470053E89A /* AppDelegate.m */; };
 		5AD46E621AD56C470053E89A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD46E601AD56C470053E89A /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 		188EC8451AD57DC5002CDBA7 /* TIQCloudKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIQCloudKit.m; sourceTree = "<group>"; };
 		188EC8471AD57DD2002CDBA7 /* TIQCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIQCoreData.h; sourceTree = "<group>"; };
 		188EC8481AD57DD2002CDBA7 /* TIQCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIQCoreData.m; sourceTree = "<group>"; };
+		188EC84B1AD58151002CDBA7 /* TopicModalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicModalTableViewController.h; sourceTree = "<group>"; };
+		188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicModalTableViewController.m; sourceTree = "<group>"; };
 		5AD46E531AD56C470053E89A /* TheIronQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheIronQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD46E571AD56C470053E89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD46E581AD56C470053E89A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				188EC83E1AD57D71002CDBA7 /* QuestionViewController.m */,
 				188EC8401AD57D96002CDBA7 /* AnswerModalViewController.h */,
 				188EC8411AD57D96002CDBA7 /* AnswerModalViewController.m */,
+				188EC84B1AD58151002CDBA7 /* TopicModalTableViewController.h */,
+				188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				188EC83C1AD57D57002CDBA7 /* QuizPickerTableViewController.m in Sources */,
 				188EC8461AD57DC5002CDBA7 /* TIQCloudKit.m in Sources */,
 				188EC83F1AD57D71002CDBA7 /* QuestionViewController.m in Sources */,
+				188EC84D1AD58151002CDBA7 /* TopicModalTableViewController.m in Sources */,
 				5AD46E5C1AD56C470053E89A /* AppDelegate.m in Sources */,
 				5AD46E591AD56C470053E89A /* main.m in Sources */,
 				188EC8421AD57D96002CDBA7 /* AnswerModalViewController.m in Sources */,
