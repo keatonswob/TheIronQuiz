@@ -42,6 +42,10 @@
     // Return the number of rows in the section.
     return 0;
 }
+- (IBAction)backTapped:(UIBarButtonItem *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

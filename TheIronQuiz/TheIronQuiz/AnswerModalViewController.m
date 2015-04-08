@@ -33,5 +33,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)doneTapped:(UIButton *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

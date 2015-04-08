@@ -75,7 +75,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Zje-ie-R1R" kind="show" id="9dX-jZ-fsb"/>
-                                    <segue destination="m0r-d6-pDS" kind="presentation" trigger="accessoryAction" id="pMS-tu-jg8"/>
+                                    <segue destination="WSV-3m-cEi" kind="presentation" trigger="accessoryAction" id="pMS-tu-jg8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -122,21 +122,6 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ISj-g5-j2q" id="PFh-KH-GAc">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFQ-Gl-9MO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="43.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="VFQ-Gl-9MO" secondAttribute="trailing" id="Bhr-M6-AaF"/>
-                                                <constraint firstAttribute="bottom" secondItem="VFQ-Gl-9MO" secondAttribute="bottom" id="Hwn-mf-XGl"/>
-                                                <constraint firstItem="VFQ-Gl-9MO" firstAttribute="top" secondItem="PFh-KH-GAc" secondAttribute="top" id="QUL-Sv-WeW"/>
-                                                <constraint firstItem="VFQ-Gl-9MO" firstAttribute="leading" secondItem="PFh-KH-GAc" secondAttribute="leading" id="rnv-Ti-1on"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -177,7 +162,12 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="orw-xZ-R44"/>
+                    <navigationItem key="navigationItem" id="orw-xZ-R44">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="V1Y-C5-TXv"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="answerTableView" destination="eRo-ru-X8z" id="6cl-4P-SWk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeK-cD-TFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XUh-nx-c2X">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="XUh-nx-c2X">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XUh-nx-c2X" id="ds5-rs-BR5">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -204,10 +194,19 @@
                             <outlet property="delegate" destination="m0r-d6-pDS" id="xHh-3u-cDl"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JOa-dm-AOJ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="mI8-Jx-8wt">
+                            <connections>
+                                <action selector="backTapped:" destination="m0r-d6-pDS" id="NEc-2f-f4X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A97-UH-iyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="1130"/>
+            <point key="canvasLocation" x="2803" y="1130"/>
         </scene>
         <!--Answer Modal View Controller-->
         <scene sceneID="bal-ki-VZz">
@@ -235,19 +234,37 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4X-Ab-auR">
+                                <rect key="frame" x="253.5" y="476" width="93" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneTapped:" destination="70m-7b-VuJ" eventType="touchUpInside" id="HVC-dK-lGU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eJP-DD-5gj" firstAttribute="top" secondItem="4z9-St-Cxm" secondAttribute="bottom" constant="223" id="63d-5j-wwl"/>
+                            <constraint firstItem="p4X-Ab-auR" firstAttribute="top" secondItem="4z9-St-Cxm" secondAttribute="bottom" constant="99" id="CyD-QF-RnW"/>
                             <constraint firstItem="4z9-St-Cxm" firstAttribute="leading" secondItem="5as-Cx-Kg4" secondAttribute="leading" id="Nbv-hP-7em"/>
+                            <constraint firstAttribute="centerX" secondItem="p4X-Ab-auR" secondAttribute="centerX" id="OMS-vS-8F2"/>
                             <constraint firstItem="eJP-DD-5gj" firstAttribute="top" secondItem="4z9-St-Cxm" secondAttribute="bottom" constant="223" id="VbP-1r-Yal"/>
                             <constraint firstAttribute="trailing" secondItem="4z9-St-Cxm" secondAttribute="trailing" id="bY9-XH-wSC"/>
                             <constraint firstItem="4z9-St-Cxm" firstAttribute="top" secondItem="5as-Cx-Kg4" secondAttribute="top" id="sAU-uc-Oyd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VbP-1r-Yal"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbu-wO-RbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3460" y="1333"/>
+            <point key="canvasLocation" x="4272" y="1333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fqh-fw-0VW">
@@ -284,6 +301,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UU-Vc-paD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2648" y="454"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wsB-dV-Hr5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WSV-3m-cEi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AUu-O0-NLn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m0r-d6-pDS" kind="relationship" relationship="rootViewController" id="p09-eF-gOo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-Bq-IVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="1130"/>
         </scene>
     </scenes>
     <resources>
