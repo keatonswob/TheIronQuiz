@@ -32,6 +32,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="TIQSegueButton:" destination="jsl-IF-nWC" eventType="touchUpInside" id="ATM-eG-tDp"/>
                                     <segue destination="apa-pe-h4N" kind="show" id="Ase-rL-pmp"/>
                                 </connections>
                             </button>
@@ -52,6 +53,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XXk-Is-AtX"/>
+                    <connections>
+                        <outlet property="TIQSegueButton" destination="3Rq-g3-cmo" id="8tG-5i-srA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USj-yx-Dn2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

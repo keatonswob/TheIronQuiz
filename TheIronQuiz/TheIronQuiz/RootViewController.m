@@ -15,10 +15,15 @@
     NSMutableArray *quizes;
     CoreDataStack *cdStack;
 }
+
+@property (weak, nonatomic) IBOutlet UIButton *TIQSegueButton;
+
+
 @end
 
 
 @implementation RootViewController
+
 
 - (void)viewDidLoad
 {
@@ -59,25 +64,7 @@
     //here we need a delegate method for firbase to inform
     // us the firebase database has completed its download.
     
-   // save
-    // /////
-    //  retrieve data
-    //  update coredata
-    
-    //  restore data into our persistant model object
-    
-    Quiz *aQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
-    
-    // aVenue.name = self.nameTextField.text;  // store the text name
-    // aVenue.rating = [NSNumber numberWithFloat: self.ratingSlider.value];
-    // aVenue.lat = [self.selectedVenue[@"location"][@"lat"];
-    // aVenue.lng = [self.selectedVenue[@"location"][@"lng"];
-    
-    
-    // /////
-    // Core Data save routines
-    
-    [self saveCoreDataUpdates ];
+
     
 }
 
@@ -113,5 +100,44 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - Action Handlers
+
+- (IBAction)TIQSegueButton:(UIButton *)sender
+{
+    // RCL: save info from Firebase here...
+    // save
+    // /////
+    //  retrieve data
+    //  update coredata
+    
+    //  restore data into our persistant model object
+    
+    Quiz *aQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
+    
+    
+    
+    // RCL: may need to do some parsing here after we bring in Firebase to actually assign these values
+    
+//    aQuiz.questions
+    
+    // aQuiz.id = fb.id;
+    // aQuiz.text = fb.text;
+    
+    // aVenue.name = self.nameTextField.text;  // store the text name
+    // aVenue.rating = [NSNumber numberWithFloat: self.ratingSlider.value];
+    // aVenue.lat = [self.selectedVenue[@"location"][@"lat"];
+    // aVenue.lng = [self.selectedVenue[@"location"][@"lng"];
+    
+    
+    // /////
+    // Core Data save routines
+//    if (self.objectfromfirebase)
+//    {
+        [self saveCoreDataUpdates];
+//    }
+    
+}
 
 @end
