@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3825588E1AD5FF3900B91BD0 /* mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 382558911AD5FF3900B91BD0 /* Build configuration list for PBXAggregateTarget "mogenerator" */;
+			buildPhases = (
+				382558921AD5FF9E00B91BD0 /* Run Script */,
+			);
+			dependencies = (
+			);
+			name = mogenerator;
+			productName = mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		188EC8391AD57D3E002CDBA7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC8381AD57D3E002CDBA7 /* RootViewController.m */; };
 		188EC83C1AD57D57002CDBA7 /* QuizPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC83B1AD57D57002CDBA7 /* QuizPickerTableViewController.m */; };
@@ -16,6 +30,16 @@
 		188EC84D1AD58151002CDBA7 /* TopicModalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */; };
 		188EC8501AD583B0002CDBA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188EC84F1AD583B0002CDBA7 /* CloudKit.framework */; };
 		18A50BF91AD5DE7100181BC5 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A50BF81AD5DE7100181BC5 /* Teacher.m */; };
+		382558951AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382558931AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld */; };
+		382558981AD6D0E100B91BD0 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558971AD6D0E100B91BD0 /* CoreDataStack.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		382558A11AD6D25F00B91BD0 /* Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3825589A1AD6D25F00B91BD0 /* Choice.m */; };
+		382558A21AD6D25F00B91BD0 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 3825589C1AD6D25F00B91BD0 /* Question.m */; };
+		382558A31AD6D25F00B91BD0 /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 3825589E1AD6D25F00B91BD0 /* Quiz.m */; };
+		382558A41AD6D25F00B91BD0 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558A01AD6D25F00B91BD0 /* Topic.m */; };
+		382558AD1AD6D27700B91BD0 /* _Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558A61AD6D27700B91BD0 /* _Choice.m */; };
+		382558AE1AD6D27700B91BD0 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558A81AD6D27700B91BD0 /* _Question.m */; };
+		382558AF1AD6D27700B91BD0 /* _Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558AA1AD6D27700B91BD0 /* _Quiz.m */; };
+		382558B01AD6D27800B91BD0 /* _Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558AC1AD6D27700B91BD0 /* _Topic.m */; };
 		5AD46E591AD56C470053E89A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD46E581AD56C470053E89A /* main.m */; };
 		5AD46E5C1AD56C470053E89A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD46E5B1AD56C470053E89A /* AppDelegate.m */; };
 		5AD46E621AD56C470053E89A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD46E601AD56C470053E89A /* Main.storyboard */; };
@@ -53,6 +77,25 @@
 		188EC84F1AD583B0002CDBA7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		18A50BF71AD5DE7100181BC5 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
 		18A50BF81AD5DE7100181BC5 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
+		382558941AD601B000B91BD0 /* TheIronQuizModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheIronQuizModel.xcdatamodel; sourceTree = "<group>"; };
+		382558961AD6D0E100B91BD0 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		382558971AD6D0E100B91BD0 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		382558991AD6D25F00B91BD0 /* Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Choice.h; path = Classes/Choice.h; sourceTree = "<group>"; };
+		3825589A1AD6D25F00B91BD0 /* Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Choice.m; path = Classes/Choice.m; sourceTree = "<group>"; };
+		3825589B1AD6D25F00B91BD0 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Classes/Question.h; sourceTree = "<group>"; };
+		3825589C1AD6D25F00B91BD0 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Classes/Question.m; sourceTree = "<group>"; };
+		3825589D1AD6D25F00B91BD0 /* Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quiz.h; path = Classes/Quiz.h; sourceTree = "<group>"; };
+		3825589E1AD6D25F00B91BD0 /* Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Quiz.m; path = Classes/Quiz.m; sourceTree = "<group>"; };
+		3825589F1AD6D25F00B91BD0 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = Classes/Topic.h; sourceTree = "<group>"; };
+		382558A01AD6D25F00B91BD0 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = Classes/Topic.m; sourceTree = "<group>"; };
+		382558A51AD6D27700B91BD0 /* _Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Choice.h; path = MOGenerated/_Choice.h; sourceTree = "<group>"; };
+		382558A61AD6D27700B91BD0 /* _Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Choice.m; path = MOGenerated/_Choice.m; sourceTree = "<group>"; };
+		382558A71AD6D27700B91BD0 /* _Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Question.h; path = MOGenerated/_Question.h; sourceTree = "<group>"; };
+		382558A81AD6D27700B91BD0 /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Question.m; path = MOGenerated/_Question.m; sourceTree = "<group>"; };
+		382558A91AD6D27700B91BD0 /* _Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Quiz.h; path = MOGenerated/_Quiz.h; sourceTree = "<group>"; };
+		382558AA1AD6D27700B91BD0 /* _Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Quiz.m; path = MOGenerated/_Quiz.m; sourceTree = "<group>"; };
+		382558AB1AD6D27700B91BD0 /* _Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Topic.h; path = MOGenerated/_Topic.h; sourceTree = "<group>"; };
+		382558AC1AD6D27700B91BD0 /* _Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Topic.m; path = MOGenerated/_Topic.m; sourceTree = "<group>"; };
 		5AD46E531AD56C470053E89A /* TheIronQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheIronQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD46E571AD56C470053E89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD46E581AD56C470053E89A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,15 +145,50 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		188EC84A1AD57E13002CDBA7 /* Model Classes */ = {
+		382558B11AD6D29800B91BD0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				382558B21AD6D2BC00B91BD0 /* Mogenerated -Do Not Modify- */,
+				382558991AD6D25F00B91BD0 /* Choice.h */,
+				3825589A1AD6D25F00B91BD0 /* Choice.m */,
+				3825589B1AD6D25F00B91BD0 /* Question.h */,
+				3825589C1AD6D25F00B91BD0 /* Question.m */,
+				3825589D1AD6D25F00B91BD0 /* Quiz.h */,
+				3825589E1AD6D25F00B91BD0 /* Quiz.m */,
+				3825589F1AD6D25F00B91BD0 /* Topic.h */,
+				382558A01AD6D25F00B91BD0 /* Topic.m */,
+				18A50BF71AD5DE7100181BC5 /* Teacher.h */,
+				18A50BF81AD5DE7100181BC5 /* Teacher.m */,
 				188EC8441AD57DC5002CDBA7 /* TIQCloudKit.h */,
 				188EC8451AD57DC5002CDBA7 /* TIQCloudKit.m */,
 				188EC8471AD57DD2002CDBA7 /* TIQCoreData.h */,
 				188EC8481AD57DD2002CDBA7 /* TIQCoreData.m */,
 			);
-			name = "Model Classes";
+			name = Models;
+			sourceTree = "<group>";
+		};
+		382558B21AD6D2BC00B91BD0 /* Mogenerated -Do Not Modify- */ = {
+			isa = PBXGroup;
+			children = (
+				382558A51AD6D27700B91BD0 /* _Choice.h */,
+				382558A61AD6D27700B91BD0 /* _Choice.m */,
+				382558A71AD6D27700B91BD0 /* _Question.h */,
+				382558A81AD6D27700B91BD0 /* _Question.m */,
+				382558A91AD6D27700B91BD0 /* _Quiz.h */,
+				382558AA1AD6D27700B91BD0 /* _Quiz.m */,
+				382558AB1AD6D27700B91BD0 /* _Topic.h */,
+				382558AC1AD6D27700B91BD0 /* _Topic.m */,
+			);
+			name = "Mogenerated -Do Not Modify-";
+			sourceTree = "<group>";
+		};
+		382558B31AD6D2F500B91BD0 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				382558961AD6D0E100B91BD0 /* CoreDataStack.h */,
+				382558971AD6D0E100B91BD0 /* CoreDataStack.m */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 		5AD46E4A1AD56C470053E89A = {
@@ -135,17 +213,17 @@
 		5AD46E551AD56C470053E89A /* TheIronQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				382558B11AD6D29800B91BD0 /* Models */,
+				382558B31AD6D2F500B91BD0 /* Library */,
 				188EC84E1AD58392002CDBA7 /* TheIronQuiz.entitlements */,
 				5AD46E5A1AD56C470053E89A /* AppDelegate.h */,
 				5AD46E5B1AD56C470053E89A /* AppDelegate.m */,
-				18A50BF71AD5DE7100181BC5 /* Teacher.h */,
-				18A50BF81AD5DE7100181BC5 /* Teacher.m */,
-				188EC84A1AD57E13002CDBA7 /* Model Classes */,
 				188EC8431AD57DA3002CDBA7 /* ViewControllers */,
 				5AD46E601AD56C470053E89A /* Main.storyboard */,
 				5AD46E631AD56C470053E89A /* Images.xcassets */,
 				5AD46E651AD56C470053E89A /* LaunchScreen.xib */,
 				5AD46E561AD56C470053E89A /* Supporting Files */,
+				382558931AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld */,
 			);
 			path = TheIronQuiz;
 			sourceTree = "<group>";
@@ -223,6 +301,9 @@
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "The Iron Yard";
 				TargetAttributes = {
+					3825588E1AD5FF3900B91BD0 = {
+						CreatedOnToolsVersion = 6.2;
+					};
 					5AD46E521AD56C470053E89A = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = RJJZNNK39M;
@@ -253,6 +334,7 @@
 			targets = (
 				5AD46E521AD56C470053E89A /* TheIronQuiz */,
 				5AD46E6B1AD56C470053E89A /* TheIronQuizTests */,
+				3825588E1AD5FF3900B91BD0 /* mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -277,21 +359,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		382558921AD5FF9E00B91BD0 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=${PATH}:/usr/local/bin\ncd \"${PROJECT_DIR}/TheIronQuiz\"\nmogenerator --human-dir Classes --machine-dir MOGenerated --model TheIronQuizModel.xcdatamodeld/TheIronQuizModel.xcdatamodel --template-var arc=true";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5AD46E4F1AD56C470053E89A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				188EC8491AD57DD2002CDBA7 /* TIQCoreData.m in Sources */,
+				382558A41AD6D25F00B91BD0 /* Topic.m in Sources */,
 				188EC83C1AD57D57002CDBA7 /* QuizPickerTableViewController.m in Sources */,
+				382558AE1AD6D27700B91BD0 /* _Question.m in Sources */,
 				188EC8461AD57DC5002CDBA7 /* TIQCloudKit.m in Sources */,
 				188EC83F1AD57D71002CDBA7 /* QuestionViewController.m in Sources */,
+				382558951AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld in Sources */,
 				188EC84D1AD58151002CDBA7 /* TopicModalTableViewController.m in Sources */,
 				5AD46E5C1AD56C470053E89A /* AppDelegate.m in Sources */,
 				5AD46E591AD56C470053E89A /* main.m in Sources */,
+				382558A11AD6D25F00B91BD0 /* Choice.m in Sources */,
+				382558AF1AD6D27700B91BD0 /* _Quiz.m in Sources */,
 				188EC8421AD57D96002CDBA7 /* AnswerModalViewController.m in Sources */,
+				382558A31AD6D25F00B91BD0 /* Quiz.m in Sources */,
 				18A50BF91AD5DE7100181BC5 /* Teacher.m in Sources */,
+				382558AD1AD6D27700B91BD0 /* _Choice.m in Sources */,
+				382558A21AD6D25F00B91BD0 /* Question.m in Sources */,
+				382558B01AD6D27800B91BD0 /* _Topic.m in Sources */,
 				188EC8391AD57D3E002CDBA7 /* RootViewController.m in Sources */,
+				382558981AD6D0E100B91BD0 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +442,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3825588F1AD5FF3900B91BD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		382558901AD5FF3900B91BD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5AD46E741AD56C470053E89A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -474,6 +597,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		382558911AD5FF3900B91BD0 /* Build configuration list for PBXAggregateTarget "mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3825588F1AD5FF3900B91BD0 /* Debug */,
+				382558901AD5FF3900B91BD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		5AD46E4E1AD56C470053E89A /* Build configuration list for PBXProject "TheIronQuiz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -502,6 +633,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		382558931AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				382558941AD601B000B91BD0 /* TheIronQuizModel.xcdatamodel */,
+			);
+			currentVersion = 382558941AD601B000B91BD0 /* TheIronQuizModel.xcdatamodel */;
+			path = TheIronQuizModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5AD46E4B1AD56C470053E89A /* Project object */;
 }

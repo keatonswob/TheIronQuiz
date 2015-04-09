@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Choice" representedClassName="Choice" syncable="YES">
+        <attribute name="correct" attributeType="Boolean" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="question" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="choices" inverseEntity="Question" syncable="YES"/>
+    </entity>
+    <entity name="Question" representedClassName="Question" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="choices" toMany="YES" deletionRule="Nullify" destinationEntity="Choice" inverseName="question" inverseEntity="Choice" syncable="YES"/>
+        <relationship name="quiz" maxCount="1" deletionRule="Nullify" destinationEntity="Quiz" inverseName="questions" inverseEntity="Quiz" syncable="YES"/>
+    </entity>
+    <entity name="Quiz" representedClassName="Quiz" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questions" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="quiz" inverseEntity="Question" syncable="YES"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="quiz" inverseEntity="Topic" syncable="YES"/>
+    </entity>
+    <entity name="Topic" representedClassName="Topic" syncable="YES">
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quiz" maxCount="1" deletionRule="Nullify" destinationEntity="Quiz" inverseName="topics" inverseEntity="Quiz" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Quiz" positionX="-911" positionY="-234" width="128" height="88"/>
+        <element name="Question" positionX="-722" positionY="-162" width="128" height="103"/>
+        <element name="Choice" positionX="-524" positionY="-171" width="128" height="103"/>
+        <element name="Topic" positionX="-954" positionY="-0" width="128" height="73"/>
+    </elements>
+</model>
