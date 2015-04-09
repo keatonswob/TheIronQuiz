@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oy7-ux-yGg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oy7-ux-yGg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -74,7 +74,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Zje-ie-R1R" kind="show" id="9dX-jZ-fsb"/>
+                                    <segue destination="Zje-ie-R1R" kind="show" identifier="QuestionViewControllerSegue" id="9dX-jZ-fsb"/>
                                     <segue destination="WSV-3m-cEi" kind="presentation" trigger="accessoryAction" id="pMS-tu-jg8"/>
                                 </connections>
                             </tableViewCell>
@@ -163,10 +163,16 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="orw-xZ-R44">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="V1Y-C5-TXv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="V1Y-C5-TXv">
+                            <connections>
+                                <action selector="nextTapped:" destination="r1A-zr-OzR" id="ehM-LZ-lMo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="answerTableView" destination="eRo-ru-X8z" id="6cl-4P-SWk"/>
+                        <outlet property="nextButton" destination="V1Y-C5-TXv" id="494-qL-40Z"/>
+                        <outlet property="questionTextView" destination="re4-nT-iiZ" id="mhh-0G-1wF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeK-cD-TFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,7 +212,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A97-UH-iyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2803" y="1130"/>
+            <point key="canvasLocation" x="2648" y="1187"/>
         </scene>
         <!--Answer Modal View Controller-->
         <scene sceneID="bal-ki-VZz">
@@ -264,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbu-wO-RbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4272" y="1333"/>
+            <point key="canvasLocation" x="3460" y="1187"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fqh-fw-0VW">
@@ -318,7 +324,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-Bq-IVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="1130"/>
+            <point key="canvasLocation" x="1991" y="1187"/>
         </scene>
     </scenes>
     <resources>

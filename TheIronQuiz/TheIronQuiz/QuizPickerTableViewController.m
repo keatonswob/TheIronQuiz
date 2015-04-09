@@ -7,8 +7,15 @@
 //
 
 #import "QuizPickerTableViewController.h"
+#import "QuestionViewController.h"
+
+#import <Firebase/Firebase.h>
 
 @interface QuizPickerTableViewController ()
+{
+    NSMutableArray *quizzes;
+    
+}
 
 @end
 
@@ -16,12 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    quizzes = [[NSMutableArray alloc] init];
+    self.quizDictionary = [[NSDictionary alloc] init];
+    [self fetchFirebaseData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +38,35 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 1;
+    return [quizzes count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
+    cell.textLabel.text = quizzes[indexPath.row];
     
-    // Configure the cell...
     
     return cell;
 }
 
+-(void)fetchFirebaseData
+{
+    Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com/Quizzes"];
+    [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSLog(@"%@", snapshot.value);
+        self.quizDictionary = snapshot.value;
+        NSString *quiz = [self.quizDictionary objectForKey:@"QuizJuan"];
+        [quizzes addObject:quiz];
+        [self.tableView reloadData];
+    }];
+    
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -85,14 +102,23 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"QuestionViewControllerSegue"])
+    {
+        UINavigationController *navC = [segue destinationViewController];
+        QuestionViewController *questionVC = [navC viewControllers][0];
+        questionVC.questionDictionary = self.quizDictionary;
+        
+        
+        
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
