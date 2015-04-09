@@ -27,6 +27,12 @@
 		188EC8421AD57D96002CDBA7 /* AnswerModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC8411AD57D96002CDBA7 /* AnswerModalViewController.m */; };
 		188EC8491AD57DD2002CDBA7 /* TIQCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC8481AD57DD2002CDBA7 /* TIQCoreData.m */; };
 		188EC84D1AD58151002CDBA7 /* TopicModalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */; };
+		18993EC71AD6F87100548E44 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993EC61AD6F87100548E44 /* Firebase.framework */; };
+		18993EC91AD6F8B900548E44 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993EC81AD6F8B900548E44 /* libicucore.dylib */; };
+		18993ECB1AD6F8C700548E44 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ECA1AD6F8C700548E44 /* libc++.dylib */; };
+		18993ECD1AD6F8D300548E44 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ECC1AD6F8D300548E44 /* CFNetwork.framework */; };
+		18993ECF1AD6F8DC00548E44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ECE1AD6F8DC00548E44 /* Security.framework */; };
+		18993ED11AD6F8E600548E44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ED01AD6F8E600548E44 /* SystemConfiguration.framework */; };
 		18A50BF91AD5DE7100181BC5 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A50BF81AD5DE7100181BC5 /* Teacher.m */; };
 		382558951AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382558931AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld */; };
 		382558981AD6D0E100B91BD0 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558971AD6D0E100B91BD0 /* CoreDataStack.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -70,6 +76,12 @@
 		188EC84B1AD58151002CDBA7 /* TopicModalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicModalTableViewController.h; sourceTree = "<group>"; };
 		188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicModalTableViewController.m; sourceTree = "<group>"; };
 		188EC84E1AD58392002CDBA7 /* TheIronQuiz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheIronQuiz.entitlements; sourceTree = "<group>"; };
+		18993EC61AD6F87100548E44 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		18993EC81AD6F8B900548E44 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		18993ECA1AD6F8C700548E44 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		18993ECC1AD6F8D300548E44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		18993ECE1AD6F8DC00548E44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		18993ED01AD6F8E600548E44 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18A50BF71AD5DE7100181BC5 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
 		18A50BF81AD5DE7100181BC5 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
 		382558941AD601B000B91BD0 /* TheIronQuizModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheIronQuizModel.xcdatamodel; sourceTree = "<group>"; };
@@ -109,6 +121,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18993ED11AD6F8E600548E44 /* SystemConfiguration.framework in Frameworks */,
+				18993ECF1AD6F8DC00548E44 /* Security.framework in Frameworks */,
+				18993ECD1AD6F8D300548E44 /* CFNetwork.framework in Frameworks */,
+				18993ECB1AD6F8C700548E44 /* libc++.dylib in Frameworks */,
+				18993EC91AD6F8B900548E44 /* libicucore.dylib in Frameworks */,
+				18993EC71AD6F87100548E44 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +155,18 @@
 				188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18993ED21AD6F93200548E44 /* FireBase Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				18993ED01AD6F8E600548E44 /* SystemConfiguration.framework */,
+				18993ECE1AD6F8DC00548E44 /* Security.framework */,
+				18993ECC1AD6F8D300548E44 /* CFNetwork.framework */,
+				18993ECA1AD6F8C700548E44 /* libc++.dylib */,
+				18993EC81AD6F8B900548E44 /* libicucore.dylib */,
+			);
+			name = "FireBase Dependencies";
 			sourceTree = "<group>";
 		};
 		382558B11AD6D29800B91BD0 /* Models */ = {
@@ -186,6 +216,7 @@
 		5AD46E4A1AD56C470053E89A = {
 			isa = PBXGroup;
 			children = (
+				18993ED21AD6F93200548E44 /* FireBase Dependencies */,
 				5AD46E551AD56C470053E89A /* TheIronQuiz */,
 				5AD46E6F1AD56C470053E89A /* TheIronQuizTests */,
 				5AD46E541AD56C470053E89A /* Products */,
@@ -204,6 +235,7 @@
 		5AD46E551AD56C470053E89A /* TheIronQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				18993EC61AD6F87100548E44 /* Firebase.framework */,
 				382558B11AD6D29800B91BD0 /* Models */,
 				382558B31AD6D2F500B91BD0 /* Library */,
 				188EC84E1AD58392002CDBA7 /* TheIronQuiz.entitlements */,
@@ -528,8 +560,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TheIronQuiz",
+				);
 				INFOPLIST_FILE = TheIronQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -541,8 +578,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TheIronQuiz",
+				);
 				INFOPLIST_FILE = TheIronQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
