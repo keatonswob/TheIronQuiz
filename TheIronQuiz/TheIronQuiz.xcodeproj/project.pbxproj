@@ -33,6 +33,7 @@
 		18993ECD1AD6F8D300548E44 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ECC1AD6F8D300548E44 /* CFNetwork.framework */; };
 		18993ECF1AD6F8DC00548E44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ECE1AD6F8DC00548E44 /* Security.framework */; };
 		18993ED11AD6F8E600548E44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18993ED01AD6F8E600548E44 /* SystemConfiguration.framework */; };
+		18993ED51AD7009000548E44 /* TIQFirebase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18993ED41AD7009000548E44 /* TIQFirebase.m */; };
 		18A50BF91AD5DE7100181BC5 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A50BF81AD5DE7100181BC5 /* Teacher.m */; };
 		382558951AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382558931AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld */; };
 		382558981AD6D0E100B91BD0 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558971AD6D0E100B91BD0 /* CoreDataStack.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -75,13 +76,14 @@
 		188EC8481AD57DD2002CDBA7 /* TIQCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIQCoreData.m; sourceTree = "<group>"; };
 		188EC84B1AD58151002CDBA7 /* TopicModalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicModalTableViewController.h; sourceTree = "<group>"; };
 		188EC84C1AD58151002CDBA7 /* TopicModalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicModalTableViewController.m; sourceTree = "<group>"; };
-		188EC84E1AD58392002CDBA7 /* TheIronQuiz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheIronQuiz.entitlements; sourceTree = "<group>"; };
-		18993EC61AD6F87100548E44 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		18993EC61AD6F87100548E44 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = TheIronQuiz/Firebase.framework; sourceTree = "<group>"; };
 		18993EC81AD6F8B900548E44 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		18993ECA1AD6F8C700548E44 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		18993ECC1AD6F8D300548E44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18993ECE1AD6F8DC00548E44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		18993ED01AD6F8E600548E44 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18993ED31AD7009000548E44 /* TIQFirebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIQFirebase.h; sourceTree = "<group>"; };
+		18993ED41AD7009000548E44 /* TIQFirebase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIQFirebase.m; sourceTree = "<group>"; };
 		18A50BF71AD5DE7100181BC5 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
 		18A50BF81AD5DE7100181BC5 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
 		382558941AD601B000B91BD0 /* TheIronQuizModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheIronQuizModel.xcdatamodel; sourceTree = "<group>"; };
@@ -185,6 +187,8 @@
 				18A50BF81AD5DE7100181BC5 /* Teacher.m */,
 				188EC8471AD57DD2002CDBA7 /* TIQCoreData.h */,
 				188EC8481AD57DD2002CDBA7 /* TIQCoreData.m */,
+				18993ED31AD7009000548E44 /* TIQFirebase.h */,
+				18993ED41AD7009000548E44 /* TIQFirebase.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -216,6 +220,7 @@
 		5AD46E4A1AD56C470053E89A = {
 			isa = PBXGroup;
 			children = (
+				18993EC61AD6F87100548E44 /* Firebase.framework */,
 				18993ED21AD6F93200548E44 /* FireBase Dependencies */,
 				5AD46E551AD56C470053E89A /* TheIronQuiz */,
 				5AD46E6F1AD56C470053E89A /* TheIronQuizTests */,
@@ -235,13 +240,11 @@
 		5AD46E551AD56C470053E89A /* TheIronQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				18993EC61AD6F87100548E44 /* Firebase.framework */,
+				188EC8431AD57DA3002CDBA7 /* ViewControllers */,
 				382558B11AD6D29800B91BD0 /* Models */,
 				382558B31AD6D2F500B91BD0 /* Library */,
-				188EC84E1AD58392002CDBA7 /* TheIronQuiz.entitlements */,
 				5AD46E5A1AD56C470053E89A /* AppDelegate.h */,
 				5AD46E5B1AD56C470053E89A /* AppDelegate.m */,
-				188EC8431AD57DA3002CDBA7 /* ViewControllers */,
 				5AD46E601AD56C470053E89A /* Main.storyboard */,
 				5AD46E631AD56C470053E89A /* Images.xcassets */,
 				5AD46E651AD56C470053E89A /* LaunchScreen.xib */,
@@ -419,6 +422,7 @@
 				382558A31AD6D25F00B91BD0 /* Quiz.m in Sources */,
 				18A50BF91AD5DE7100181BC5 /* Teacher.m in Sources */,
 				382558AD1AD6D27700B91BD0 /* _Choice.m in Sources */,
+				18993ED51AD7009000548E44 /* TIQFirebase.m in Sources */,
 				382558A21AD6D25F00B91BD0 /* Question.m in Sources */,
 				382558B01AD6D27800B91BD0 /* _Topic.m in Sources */,
 				188EC8391AD57D3E002CDBA7 /* RootViewController.m in Sources */,
