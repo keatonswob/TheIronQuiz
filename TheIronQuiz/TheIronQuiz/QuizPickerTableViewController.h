@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QuizPickerTableViewController : UITableViewController
+@property (strong, nonatomic) NSDictionary *quizDictionary;
 
 @end

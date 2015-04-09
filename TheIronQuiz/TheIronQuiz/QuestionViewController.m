@@ -7,20 +7,40 @@
 //
 
 #import "QuestionViewController.h"
+#import "QuizPickerTableViewController.h"
 
 @interface QuestionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *answerTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
+@property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 
 
 @end
 
 @implementation QuestionViewController
+{
+    NSMutableArray *answerArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
+    answerArray = [[NSMutableArray alloc] init];
+    NSDictionary *quizOne =  [self.questionDictionary objectForKey:@"QuizOne"];
+    NSDictionary *questions = [quizOne objectForKey:@"Questions"];
+    NSDictionary *answersAndQuestions = [questions objectForKey:@"QuestionOne"];
+    NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
+    NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
+    NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
+    NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
+    NSString *question = [answersAndQuestions objectForKey:@"Question"];
+    [answerArray addObject:answerOne];
+    [answerArray addObject:answerTwo];
+    [answerArray addObject:answerThree];
+    [answerArray addObject:answerFour];
+    self.questionTextView.text = question;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,16 +67,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 3;
+    return [answerArray count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnswerCell" forIndexPath:indexPath];
     
-//    cell.textLabel.text 
+    cell.textLabel.text = answerArray[indexPath.row];
     
     return cell;
+}
+- (IBAction)nextTapped:(UIBarButtonItem *)sender
+{
+    
+    
+    
+    
 }
 
 

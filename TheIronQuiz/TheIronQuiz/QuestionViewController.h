@@ -10,4 +10,6 @@
 
 @interface QuestionViewController : UIViewController
 
+@property(strong, nonatomic) NSDictionary *questionDictionary;
+
 @end

@@ -74,7 +74,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Zje-ie-R1R" kind="show" id="9dX-jZ-fsb"/>
+                                    <segue destination="Zje-ie-R1R" kind="show" identifier="QuestionViewControllerSegue" id="9dX-jZ-fsb"/>
                                     <segue destination="WSV-3m-cEi" kind="presentation" trigger="accessoryAction" id="pMS-tu-jg8"/>
                                 </connections>
                             </tableViewCell>
@@ -163,10 +163,16 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="orw-xZ-R44">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="V1Y-C5-TXv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="V1Y-C5-TXv">
+                            <connections>
+                                <action selector="nextTapped:" destination="r1A-zr-OzR" id="ehM-LZ-lMo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="answerTableView" destination="eRo-ru-X8z" id="6cl-4P-SWk"/>
+                        <outlet property="nextButton" destination="V1Y-C5-TXv" id="494-qL-40Z"/>
+                        <outlet property="questionTextView" destination="re4-nT-iiZ" id="mhh-0G-1wF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeK-cD-TFa" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,12 +7,14 @@
 //
 
 #import "QuizPickerTableViewController.h"
+#import "QuestionViewController.h"
+
 #import <Firebase/Firebase.h>
 
 @interface QuizPickerTableViewController ()
 {
     NSMutableArray *quizzes;
-    NSDictionary *quizDictionary;
+    
 }
 
 @end
@@ -24,7 +26,7 @@
    
     
     quizzes = [[NSMutableArray alloc] init];
-    quizDictionary = [[NSDictionary alloc] init];
+    self.quizDictionary = [[NSDictionary alloc] init];
     [self fetchFirebaseData];
 }
 
@@ -57,8 +59,8 @@
     Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com/Quizzes"];
     [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSLog(@"%@", snapshot.value);
-        quizDictionary = snapshot.value;
-        NSString *quiz = [quizDictionary objectForKey:@"QuizJuan"];
+        self.quizDictionary = snapshot.value;
+        NSString *quiz = [self.quizDictionary objectForKey:@"QuizJuan"];
         [quizzes addObject:quiz];
         [self.tableView reloadData];
     }];
@@ -100,14 +102,23 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"QuestionViewControllerSegue"])
+    {
+        UINavigationController *navC = [segue destinationViewController];
+        QuestionViewController *questionVC = [navC viewControllers][0];
+        questionVC.questionDictionary = self.quizDictionary;
+        
+        
+        
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
