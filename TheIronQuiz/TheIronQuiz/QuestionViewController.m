@@ -96,40 +96,24 @@
 - (void)loadQuestion
 {
     
-        NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
-        NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
-        NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
-        NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
-        NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
-        NSString *question = [answersAndQuestions objectForKey:@"Question"];
-//    NSArray *allKeys = [answersAndQuestions allKeys];
-//    for (NSString *aKey in allKeys)
-//    {
-//        NSDictionary *aChoice = [answersAndQuestions objectForKey:aKey];
-//        [answerArray addObject:aChoice];
-//    }
-    if (answerFour)
+    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
+//        NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
+//        NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
+//        NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
+//        NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
+    NSString *question = [answersAndQuestions objectForKey:@"Question"];
+    
+    NSArray *allKeys = [answersAndQuestions allKeys];
+    for (NSString *aKey in allKeys)
     {
-        [answerArray addObject:answerOne];
-        [answerArray addObject:answerTwo];
-        [answerArray addObject:answerThree];
-        [answerArray addObject:answerFour];
-        self.questionLabel.text = question;
+        NSString *aChoice = [answersAndQuestions objectForKey:aKey];
+        if ([aKey containsString:@"Answer"])
+        {
+            [answerArray addObject:aChoice];
+        }
     }
-    else if (answerThree)
-    {
-        [answerArray addObject:answerOne];
-        [answerArray addObject:answerTwo];
-        [answerArray addObject:answerThree];
+    
         self.questionLabel.text = question;
-    }
-    else
-    {
-        [answerArray addObject:answerOne];
-        [answerArray addObject:answerTwo];
-        self.questionLabel.text = question;
-    }
-
         [self.answerTableView reloadData];
 }
 
