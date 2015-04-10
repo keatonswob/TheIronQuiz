@@ -180,6 +180,7 @@
                     <connections>
                         <outlet property="answerTableView" destination="eRo-ru-X8z" id="6cl-4P-SWk"/>
                         <outlet property="nextButton" destination="V1Y-C5-TXv" id="494-qL-40Z"/>
+                        <outlet property="questionLabel" destination="z73-d3-d24" id="E0h-WS-QIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeK-cD-TFa" userLabel="First Responder" sceneMemberID="firstResponder"/>

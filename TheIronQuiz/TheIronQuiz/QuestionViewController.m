@@ -12,7 +12,7 @@
 @interface QuestionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *answerTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
-@property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
 
 @end
@@ -20,6 +20,7 @@
 @implementation QuestionViewController
 {
     NSMutableArray *answerArray;
+    NSInteger currentQuestion;
 }
 
 - (void)viewDidLoad {
@@ -39,7 +40,7 @@
     [answerArray addObject:answerTwo];
     [answerArray addObject:answerThree];
     [answerArray addObject:answerFour];
-    self.questionTextView.text = question;
+    self.questionLabel.text = question;
     
 }
 
@@ -80,11 +81,16 @@
 }
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
-    
-    
-    
-    
+    if (currentQuestion + 1 == [answerArray count])
+        currentQuestion = 0;
+    [answerArray objectAtIndex:currentQuestion];
+//    [imageView setImage:img];
+    currentQuestion++;
 }
+    
+    
+    
+
 
 
 @end
