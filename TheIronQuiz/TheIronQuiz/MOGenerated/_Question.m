@@ -4,7 +4,7 @@
 #import "_Question.h"
 
 const struct QuestionAttributes QuestionAttributes = {
-	.id = @"id",
+	.question = @"question",
 	.text = @"text",
 };
 
@@ -42,7 +42,7 @@ const struct QuestionRelationships QuestionRelationships = {
 	return keyPaths;
 }
 
-@dynamic id;
+@dynamic question;
 
 @dynamic text;
 

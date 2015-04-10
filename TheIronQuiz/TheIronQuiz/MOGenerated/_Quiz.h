@@ -4,7 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct QuizAttributes {
-	__unsafe_unretained NSString *id;
+	__unsafe_unretained NSString *quiz;
 } QuizAttributes;
 
 extern const struct QuizRelationships {
@@ -24,9 +24,9 @@ extern const struct QuizRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) QuizID* objectID;
 
-@property (nonatomic, strong) NSString* id;
+@property (nonatomic, strong) NSString* quiz;
 
-//- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateQuiz:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSSet *questions;
 
@@ -56,8 +56,8 @@ extern const struct QuizRelationships {
 
 @interface _Quiz (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString*)primitiveId;
-- (void)setPrimitiveId:(NSString*)value;
+- (NSString*)primitiveQuiz;
+- (void)setPrimitiveQuiz:(NSString*)value;
 
 - (NSMutableSet*)primitiveQuestions;
 - (void)setPrimitiveQuestions:(NSMutableSet*)value;

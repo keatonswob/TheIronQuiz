@@ -97,12 +97,7 @@
 
 - (void)loadQuestion
 {
-    
     NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
-//        NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
-//        NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
-//        NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
-//        NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
     NSString *question = [answersAndQuestions objectForKey:@"Question"];
     
     NSArray *allKeys = [answersAndQuestions allKeys];

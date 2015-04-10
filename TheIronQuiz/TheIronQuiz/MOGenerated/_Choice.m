@@ -4,8 +4,8 @@
 #import "_Choice.h"
 
 const struct ChoiceAttributes ChoiceAttributes = {
+	.choice = @"choice",
 	.correct = @"correct",
-	.id = @"id",
 	.text = @"text",
 };
 
@@ -39,36 +39,12 @@ const struct ChoiceRelationships ChoiceRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"correctValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"correct"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-
 	return keyPaths;
 }
 
+@dynamic choice;
+
 @dynamic correct;
-
-- (BOOL)correctValue {
-	NSNumber *result = [self correct];
-	return [result boolValue];
-}
-
-- (void)setCorrectValue:(BOOL)value_ {
-	[self setCorrect:[NSNumber numberWithBool:value_]];
-}
-
-- (BOOL)primitiveCorrectValue {
-	NSNumber *result = [self primitiveCorrect];
-	return [result boolValue];
-}
-
-- (void)setPrimitiveCorrectValue:(BOOL)value_ {
-	[self setPrimitiveCorrect:[NSNumber numberWithBool:value_]];
-}
-
-@dynamic id;
 
 @dynamic text;
 

@@ -39,13 +39,22 @@
     [super viewDidLoad];
     
     // initialize our CoreDataStack model
-    cdStack = [ CoreDataStack coreDataStackWithModelName:@"TheIronQuizModel" ];
+    cdStack = [ CoreDataStack coreDataStackWithModelName:@"TheIronQuizModel"];
                
     cdStack.coreDataStoreType = CDSStoreTypeSQL;
                
     quizes = [[NSMutableArray alloc]init];
     
+    [self fetchFirebaseData];
     
+//    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
+//    NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
+//    NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
+//    NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
+//    NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
+//    NSString *correct = [answersAndQuestions objectForKey:@"Correct"];
+//    NSString *question = [answersAndQuestions objectForKey:@"Question"];
+//    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,7 +77,7 @@
     // populate model from persistant data!
     quizes = nil;
     quizes = [[ cdStack.managedObjectContext executeFetchRequest:fetch error:nil] mutableCopy];
-
+    // RCL: Are the Quizes the only thing we need to fetch from CoreData?
     
     
     //here we need a delegate method for firbase to inform
@@ -124,12 +133,30 @@
     
     //  restore data into our persistant model object
     
-    Quiz *aQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
-    Choice *aChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
-    Question *aQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:cdStack.managedObjectContext];
-    Topic *aTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
+    Quiz *coreQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
+    Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+    Question *coreQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:cdStack.managedObjectContext];
+    Topic *coreTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
     
     
+//    NSDictionary *quizNumber =  [self.quizDictionary objectForKey:self.quizName];
+//    NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
+    //    [questionArray addObject:questions];
+    
+    
+//    NSArray *allQuizKeys = [self.quizDictionary allKeys];
+//    for (NSString *aKey in allQuizKeys)
+//    {
+//        NSString *aQuiz = [self.quizDictionary objectForKey:aKey];
+//        [coreQuiz.quiz ]
+//    }
+//    
+//    NSArray *allKeys = [questions allKeys];
+//    for (NSString *aKey in allKeys)
+//    {
+//        NSString *aQuestion = [questions objectForKey:aKey];
+//        [coreQuestion.question addObject:aQuestion];
+//    }
     
     
     // RCL: may need to do some parsing here after we bring in Firebase to actually assign these values

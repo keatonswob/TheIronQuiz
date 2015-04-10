@@ -4,7 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct QuestionAttributes {
-	__unsafe_unretained NSString *id;
+	__unsafe_unretained NSString *question;
 	__unsafe_unretained NSString *text;
 } QuestionAttributes;
 
@@ -25,9 +25,9 @@ extern const struct QuestionRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) QuestionID* objectID;
 
-@property (nonatomic, strong) NSString* id;
+@property (nonatomic, strong) NSString* question;
 
-//- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateQuestion:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* text;
 
@@ -53,8 +53,8 @@ extern const struct QuestionRelationships {
 
 @interface _Question (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString*)primitiveId;
-- (void)setPrimitiveId:(NSString*)value;
+- (NSString*)primitiveQuestion;
+- (void)setPrimitiveQuestion:(NSString*)value;
 
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;
