@@ -56,7 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
     cell.textLabel.text = quizzes[indexPath.row];
-    quiz = cell.textLabel.text;
+    
     
     return cell;
 }
@@ -77,6 +77,10 @@
     
     
 }
+
+
+
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -111,6 +115,10 @@
     return YES;
 }
 */
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 
 #pragma mark - Navigation
@@ -122,7 +130,7 @@
         UINavigationController *navC = [segue destinationViewController];
         QuestionViewController *questionVC = [navC viewControllers][0];
         questionVC.questionDictionary = self.quizDictionary;
-        questionVC.quizName = quiz;
+        questionVC.quizName = quizOne;
         
         
         
