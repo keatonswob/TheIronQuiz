@@ -19,6 +19,7 @@
 
 @implementation QuestionViewController
 {
+    NSMutableArray *questionArray;
     NSMutableArray *answerArray;
     NSInteger currentQuestion;
 }
@@ -27,21 +28,20 @@
     [super viewDidLoad];
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
+    questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
+    currentQuestion = 0;
     NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
     NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
-    NSDictionary *answersAndQuestions = [questions objectForKey:@"QuestionOne"];
-    NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
-    NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
-    NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
-    NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
-    NSString *question = [answersAndQuestions objectForKey:@"Question"];
-    [answerArray addObject:answerOne];
-    [answerArray addObject:answerTwo];
-    [answerArray addObject:answerThree];
-    [answerArray addObject:answerFour];
-    self.questionLabel.text = question;
-    
+//    [questionArray addObject:questions];
+    NSArray *allKeys = [questions allKeys];
+    for (NSString *aKey in allKeys)
+    {
+        NSDictionary *aQuestion = [questions objectForKey:aKey];
+        [questionArray addObject:aQuestion];
+    }
+
+    [self loadQuestion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,14 +81,59 @@
 }
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
-    if (currentQuestion + 1 == [answerArray count])
-        currentQuestion = 0;
-    [answerArray objectAtIndex:currentQuestion];
-//    [imageView setImage:img];
     currentQuestion++;
+    if (currentQuestion < [questionArray count])
+    {
+        [answerArray removeAllObjects];
+        [self loadQuestion];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
+
+- (void)loadQuestion
+{
     
-    
+        NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
+        NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
+        NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
+        NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
+        NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
+        NSString *question = [answersAndQuestions objectForKey:@"Question"];
+//    NSArray *allKeys = [answersAndQuestions allKeys];
+//    for (NSString *aKey in allKeys)
+//    {
+//        NSDictionary *aChoice = [answersAndQuestions objectForKey:aKey];
+//        [answerArray addObject:aChoice];
+//    }
+    if (answerFour)
+    {
+        [answerArray addObject:answerOne];
+        [answerArray addObject:answerTwo];
+        [answerArray addObject:answerThree];
+        [answerArray addObject:answerFour];
+        self.questionLabel.text = question;
+    }
+    else if (answerThree)
+    {
+        [answerArray addObject:answerOne];
+        [answerArray addObject:answerTwo];
+        [answerArray addObject:answerThree];
+        self.questionLabel.text = question;
+    }
+    else
+    {
+        [answerArray addObject:answerOne];
+        [answerArray addObject:answerTwo];
+        self.questionLabel.text = question;
+    }
+
+        [self.answerTableView reloadData];
+}
+
+
     
 
 
