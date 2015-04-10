@@ -130,6 +130,8 @@
     Topic *aTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
     
     
+    
+    
     // RCL: may need to do some parsing here after we bring in Firebase to actually assign these values
     
     
