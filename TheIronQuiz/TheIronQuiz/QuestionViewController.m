@@ -81,7 +81,7 @@
 }
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
-    self.navigationItem.hidesBackButton = YES;
+//    self.navigationItem.hidesBackButton = YES;
     currentQuestion++;
     if (currentQuestion < [questionArray count])
     {
@@ -90,7 +90,7 @@
     }
     else
     {
-//        [QuizPickerTableViewController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
 //        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
