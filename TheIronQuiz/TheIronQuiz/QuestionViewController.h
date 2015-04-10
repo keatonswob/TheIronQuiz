@@ -11,5 +11,6 @@
 @interface QuestionViewController : UIViewController
 
 @property(strong, nonatomic) NSDictionary *questionDictionary;
+@property(strong, nonatomic) NSString *quizName;
 
 @end

@@ -14,6 +14,10 @@
 @interface QuizPickerTableViewController ()
 {
     NSMutableArray *quizzes;
+    NSString *quizOne;
+    NSString *quizTwo;
+    NSString *quiz;
+    
     
 }
 
@@ -27,6 +31,9 @@
     
     quizzes = [[NSMutableArray alloc] init];
     self.quizDictionary = [[NSDictionary alloc] init];
+    quizOne = [[NSString alloc] init];
+    quizTwo = [[NSString alloc] init];
+    quiz = [[NSString alloc] init];
     [self fetchFirebaseData];
 }
 
@@ -49,7 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
     cell.textLabel.text = quizzes[indexPath.row];
-    
+    quiz = cell.textLabel.text;
     
     return cell;
 }
@@ -60,8 +67,11 @@
     [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSLog(@"%@", snapshot.value);
         self.quizDictionary = snapshot.value;
-        NSString *quiz = [self.quizDictionary objectForKey:@"QuizJuan"];
-        [quizzes addObject:quiz];
+        quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
+        quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];
+        
+        [quizzes addObject:quizOne];
+        [quizzes addObject:quizTwo];
         [self.tableView reloadData];
     }];
     
@@ -112,6 +122,7 @@
         UINavigationController *navC = [segue destinationViewController];
         QuestionViewController *questionVC = [navC viewControllers][0];
         questionVC.questionDictionary = self.quizDictionary;
+        questionVC.quizName = quiz;
         
         
         

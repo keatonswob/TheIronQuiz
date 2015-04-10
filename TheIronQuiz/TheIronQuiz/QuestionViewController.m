@@ -27,8 +27,8 @@
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
     answerArray = [[NSMutableArray alloc] init];
-    NSDictionary *quizOne =  [self.questionDictionary objectForKey:@"QuizOne"];
-    NSDictionary *questions = [quizOne objectForKey:@"Questions"];
+    NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
+    NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
     NSDictionary *answersAndQuestions = [questions objectForKey:@"QuestionOne"];
     NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
     NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
