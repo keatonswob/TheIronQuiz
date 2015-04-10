@@ -8,12 +8,21 @@
 
 #import "RootViewController.h"
 #import "Quiz.h"
+#import "Choice.h"
+#import "Question.h"
+#import "Topic.h"
 #import "CoreDataStack.h"
+
+#import <Firebase/Firebase.h>
 
 @interface RootViewController ()
 {
     NSMutableArray *quizes;
     CoreDataStack *cdStack;
+    NSMutableArray *quizzes;
+    NSString *quizOne;
+    NSString *quizTwo;
+    NSString *quiz;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *TIQSegueButton;
@@ -35,6 +44,7 @@
     cdStack.coreDataStoreType = CDSStoreTypeSQL;
                
     quizes = [[NSMutableArray alloc]init];
+    
     
 }
 
@@ -115,10 +125,13 @@
     //  restore data into our persistant model object
     
     Quiz *aQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
-    
+    Choice *aChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+    Question *aQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:cdStack.managedObjectContext];
+    Topic *aTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
     
     
     // RCL: may need to do some parsing here after we bring in Firebase to actually assign these values
+    
     
 //    aQuiz.questions
     
@@ -135,8 +148,25 @@
     // Core Data save routines
 //    if (self.objectfromfirebase)
 //    {
-        [self saveCoreDataUpdates];
+    [self saveCoreDataUpdates];
 //    }
+    
+}
+
+
+-(void)fetchFirebaseData
+{
+    Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com/Quizzes"];
+    [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSLog(@"%@", snapshot.value);
+        self.quizDictionary = snapshot.value;
+        quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
+        quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];
+        
+        
+        
+    }];
+    
     
 }
 

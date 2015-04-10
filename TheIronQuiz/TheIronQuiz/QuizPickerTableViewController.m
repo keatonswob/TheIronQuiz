@@ -60,6 +60,12 @@
     
     return cell;
 }
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    quiz = cell.textLabel.text;
+//    
+//}
 
 -(void)fetchFirebaseData
 {
@@ -115,10 +121,7 @@
     return YES;
 }
 */
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
+
 
 
 #pragma mark - Navigation
@@ -127,10 +130,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"QuestionViewControllerSegue"])
     {
+       
+        UITableViewCell *cell = sender;
+        quiz = cell.textLabel.text;
         UINavigationController *navC = [segue destinationViewController];
         QuestionViewController *questionVC = [navC viewControllers][0];
         questionVC.questionDictionary = self.quizDictionary;
-        questionVC.quizName = quizOne;
+        questionVC.quizName = quiz;
+        
         
         
         
