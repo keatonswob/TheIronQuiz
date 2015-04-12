@@ -17,7 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AnswerModalViewController.delegate = self
+//    [self.delegate updateLabel];
+//    AnswerModalViewController.delegate = self
     // Do any additional setup after loading the view.
     
 }
@@ -39,9 +40,14 @@
 }
 */
 
--(void)updateLabel
+//-(void)updateLabel
+//{
+//    self.submitAnswerLabel.text = @"AAA";
+//}
+
+-(void)updateLabel:(NSString *)aString
 {
-    self.submitAnswerLabel.text = @"AAA";
+    self.submitAnswerLabel.text = [NSString stringWithFormat:@"%@", aString];
 }
 
 - (IBAction)doneTapped:(UIButton *)sender

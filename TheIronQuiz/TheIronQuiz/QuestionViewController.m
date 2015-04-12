@@ -28,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.QuestionViewController.delegate = self;
+    [self.delegate updateLabel:@"A"];
+//    self.QuestionViewController.delegate = self;
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
     questionArray = [[NSMutableArray alloc] init];
@@ -75,7 +76,8 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnswerCell" forIndexPath:indexPath];
     
     
@@ -90,6 +92,8 @@
     
     cell.textLabel.text = answerArray[indexPath.row];
     
+
+        
     if ([indexPath row] == 0)
     {
 //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -107,7 +111,7 @@
 //        
 //        cell.textLabel.text = @"row0";
 //        answerModalVC.submitAnswerLabel.text = @"Aaaa";
-        [self.delegate updateLabel];
+        
     }
     else if ([indexPath row] == 1)
     {
@@ -134,6 +138,7 @@
     
     return cell;
 }
+
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
 //    self.navigationItem.hidesBackButton = YES;
@@ -167,6 +172,11 @@
     
         self.questionLabel.text = question;
         [self.answerTableView reloadData];
+}
+
+-(void)updateLabel
+{
+    answerModalVC.submitAnswerLabel.text = @"Aaa";
 }
 
 
