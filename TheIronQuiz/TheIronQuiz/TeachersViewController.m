@@ -65,10 +65,10 @@
     // Configure the cell...
     
     //similar to this, but, we have a custom cell.
-    NSString *itemList = resultsArray[indexPath.row];
+////    NSString *itemList = resultsArray[indexPath.row];
     //    NSString *addressList = resultsArray[1][indexPath.row];
     
-    cell.textLabel.text = itemList;
+////    cell.textLabel.text = itemList;
     //    cell.detailTextLabel.text = addressList;
     
     return cell;
