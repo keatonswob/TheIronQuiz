@@ -14,15 +14,20 @@
 
 @implementation AnswerModalViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    AnswerModalViewController.delegate = self
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -33,6 +38,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)updateLabel
+{
+    self.submitAnswerLabel.text = @"AAA";
+}
+
 - (IBAction)doneTapped:(UIButton *)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];

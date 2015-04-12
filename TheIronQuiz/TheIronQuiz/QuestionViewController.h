@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerModalViewController.h"
+
+@protocol AnswerModalViewControllerDelegate
+
+-(void)updateLabel;
+
+@end
 
 @interface QuestionViewController : UIViewController
+
+@property (strong, nonatomic) id<AnswerModalViewControllerDelegate> delegate;
 
 @property(strong, nonatomic) NSDictionary *questionDictionary;
 @property(strong, nonatomic) NSString *quizName;

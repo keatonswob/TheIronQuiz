@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuestionViewController.h"
 
-@interface AnswerModalViewController : UIViewController
+
+
+
+@interface AnswerModalViewController : UIViewController<AnswerModalViewControllerDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UILabel *submitAnswerLabel;
 
 @end
+
+

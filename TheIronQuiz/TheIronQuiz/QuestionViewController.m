@@ -8,6 +8,7 @@
 
 #import "QuestionViewController.h"
 #import "QuizPickerTableViewController.h"
+#import "AnswerModalViewController.h"
 
 @interface QuestionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *answerTableView;
@@ -22,10 +23,12 @@
     NSMutableArray *questionArray;
     NSMutableArray *answerArray;
     NSInteger currentQuestion;
+    AnswerModalViewController *answerModalVC;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.QuestionViewController.delegate = self;
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
     questionArray = [[NSMutableArray alloc] init];
@@ -75,7 +78,59 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnswerCell" forIndexPath:indexPath];
     
+    
+    
+//    static NSString *CellIdentifier = @"AnswerCell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+    
     cell.textLabel.text = answerArray[indexPath.row];
+    
+    if ([indexPath row] == 0)
+    {
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//        UIView *bgColorView = [[UIView alloc] init];
+//        bgColorView.layer.cornerRadius = 7;
+//        bgColorView.layer.masksToBounds = YES;
+//        [bgColorView setBackgroundColor:[UIColor colorWithRed:.85 green:0 blue:0 alpha:1]];
+//        [cell setSelectedBackgroundView:bgColorView];
+//        
+//        UIColor *backColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+//        cell.backgroundColor = backColor;
+//        UIColor *foreColor = [UIColor colorWithWhite:1 alpha:1];
+//        cell.textLabel.textColor = foreColor;
+//        
+//        cell.textLabel.text = @"row0";
+//        answerModalVC.submitAnswerLabel.text = @"Aaaa";
+        [self.delegate updateLabel];
+    }
+    else if ([indexPath row] == 1)
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UIColor *backColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+        cell.backgroundColor = backColor;
+        UIColor *foreColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+        cell.textLabel.textColor = foreColor;
+        
+        cell.textLabel.text = @"row1";
+    }
+    else if ([indexPath row] == 2)
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UIColor *backColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+        cell.backgroundColor = backColor;
+        UIColor *foreColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+        cell.textLabel.textColor = foreColor;
+        
+        cell.textLabel.text = @"row2";
+    }
     
     return cell;
 }

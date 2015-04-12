@@ -297,21 +297,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="A" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4z9-St-Cxm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="377"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="377" id="S4U-3P-l1O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="S4U-3P-l1O"/>
-                                    </mask>
-                                </variation>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4X-Ab-auR">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4X-Ab-auR">
                                 <rect key="frame" x="254" y="476" width="93" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Done">
@@ -321,23 +307,23 @@
                                     <action selector="doneTapped:" destination="70m-7b-VuJ" eventType="touchUpInside" id="HVC-dK-lGU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6k-eX-QkU">
+                                <rect key="frame" x="202" y="121" width="197" height="358"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eJP-DD-5gj" firstAttribute="top" secondItem="4z9-St-Cxm" secondAttribute="bottom" constant="223" id="63d-5j-wwl"/>
-                            <constraint firstItem="p4X-Ab-auR" firstAttribute="top" secondItem="4z9-St-Cxm" secondAttribute="bottom" constant="99" id="CyD-QF-RnW"/>
-                            <constraint firstItem="4z9-St-Cxm" firstAttribute="leading" secondItem="5as-Cx-Kg4" secondAttribute="leading" id="Nbv-hP-7em"/>
+                            <constraint firstAttribute="centerY" secondItem="l6k-eX-QkU" secondAttribute="centerY" constant="0.5" id="Efe-Qa-Qtc"/>
                             <constraint firstAttribute="centerX" secondItem="p4X-Ab-auR" secondAttribute="centerX" id="OMS-vS-8F2"/>
-                            <constraint firstItem="eJP-DD-5gj" firstAttribute="top" secondItem="4z9-St-Cxm" secondAttribute="bottom" constant="223" id="VbP-1r-Yal"/>
-                            <constraint firstAttribute="trailing" secondItem="4z9-St-Cxm" secondAttribute="trailing" id="bY9-XH-wSC"/>
-                            <constraint firstItem="4z9-St-Cxm" firstAttribute="top" secondItem="5as-Cx-Kg4" secondAttribute="top" id="sAU-uc-Oyd"/>
+                            <constraint firstAttribute="centerX" secondItem="l6k-eX-QkU" secondAttribute="centerX" id="wLc-XA-mmu"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="VbP-1r-Yal"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="submitAnswerLabel" destination="l6k-eX-QkU" id="XFx-pQ-LAu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbu-wO-RbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
