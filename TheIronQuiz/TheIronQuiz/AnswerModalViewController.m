@@ -17,10 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self updateLabel:@"A"];
+//    self.submitAnswerLabel.text = @"ABC";
 //    [self.delegate updateLabel];
 //    AnswerModalViewController.delegate = self
     // Do any additional setup after loading the view.
-    
+//    [self updateLabel:@""].delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

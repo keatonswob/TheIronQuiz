@@ -28,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.delegate updateLabel:@"A"];
+//    QuestionViewController.delegate = self
+    answerModalVC = [[AnswerModalViewController alloc] init];
 //    self.QuestionViewController.delegate = self;
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
@@ -38,13 +39,17 @@
     NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
     NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
 //    [questionArray addObject:questions];
+    
+    
     NSArray *allKeys = [questions allKeys];
     for (NSString *aKey in allKeys)
     {
         NSDictionary *aQuestion = [questions objectForKey:aKey];
         [questionArray addObject:aQuestion];
     }
-
+    
+    
+    [self.delegate updateLabel:@"A"];
     [self loadQuestion];
 }
 
@@ -53,15 +58,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"ShowWinningTicketSegue"])
+//    {
+//        AnswerModalViewController *answerModalViewC = (AnswerModalViewController *)[segue destinationViewController];
+//        answerModalViewC.delegate = self; //do work
+//    }
+//}
+
 
 #pragma mark - Table view data source
 
@@ -111,29 +119,23 @@
 //        
 //        cell.textLabel.text = @"row0";
 //        answerModalVC.submitAnswerLabel.text = @"Aaaa";
-        
+        [self.delegate updateLabel:@"A"];
     }
     else if ([indexPath row] == 1)
     {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        UIColor *backColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-        cell.backgroundColor = backColor;
-        UIColor *foreColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
-        cell.textLabel.textColor = foreColor;
-        
-        cell.textLabel.text = @"row1";
+        [self.delegate updateLabel:@"B"];
     }
     else if ([indexPath row] == 2)
     {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        UIColor *backColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-        cell.backgroundColor = backColor;
-        UIColor *foreColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
-        cell.textLabel.textColor = foreColor;
-        
-        cell.textLabel.text = @"row2";
+        [self.delegate updateLabel:@"C"];
+    }
+    else if ([indexPath row] == 3)
+    {
+        [self.delegate updateLabel:@"D"];
+    }
+    else if ([indexPath row] == 4)
+    {
+        [self.delegate updateLabel:@"E"];
     }
     
     return cell;
@@ -141,7 +143,7 @@
 
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
-//    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.hidesBackButton = YES;
     currentQuestion++;
     if (currentQuestion < [questionArray count])
     {
@@ -174,10 +176,10 @@
         [self.answerTableView reloadData];
 }
 
--(void)updateLabel
-{
-    answerModalVC.submitAnswerLabel.text = @"Aaa";
-}
+//-(void)updateLabel
+//{
+//    answerModalVC.submitAnswerLabel.text = @"Aaa";
+//}
 
 
     
