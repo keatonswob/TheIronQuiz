@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AnswerModalViewController.h"
 
+@class Quiz;
+
 
 @interface QuestionViewController : UIViewController <QuestionViewControllerDelegate>
 
 
 
 @property(strong, nonatomic) NSDictionary *questionDictionary;
-@property(strong, nonatomic) NSString *quizName;
-
+@property(strong, nonatomic) Quiz *aQuiz;
 @end
