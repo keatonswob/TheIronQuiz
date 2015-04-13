@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AnswerModalViewController.h"
-
-@class Quiz;
+#import "Quiz.h"
 
 
 @interface QuestionViewController : UIViewController <QuestionViewControllerDelegate>

@@ -41,6 +41,12 @@
     
     cdStack.coreDataStoreType = CDSStoreTypeSQL;
   
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
+    [fetchRequest setEntity:entity];
+//    quizzes = nil;
+    quizzes = [[cdStack.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    [self.tableView reloadData];
    
    
 }
@@ -50,17 +56,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    {
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
-        [fetchRequest setEntity:entity];
-        quizzes = nil;
-        quizzes = [[cdStack.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-        [self.tableView reloadData];
-    }
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    {
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
+//        [fetchRequest setEntity:entity];
+//        quizzes = nil;
+//        quizzes = [[cdStack.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//        [self.tableView reloadData];
+//    }
+//}
 
 #pragma mark - Table view data source
 
@@ -141,7 +147,7 @@
         
         UINavigationController *navC = [segue destinationViewController];
         QuestionViewController *questionVC = [navC viewControllers][0];
-        questionVC.quizName = quiz;
+        questionVC.aQuiz = aQuiz;
         
         
         

@@ -9,6 +9,8 @@
 #import "QuestionViewController.h"
 #import "QuizPickerTableViewController.h"
 #import "AnswerModalViewController.h"
+#import "Question.h"
+#import "Choice.h"
 
 @interface QuestionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *answerTableView;
@@ -36,21 +38,30 @@
     questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
     currentQuestion = 0;
-    NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
-    NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
-//    [questionArray addObject:questions];
+    Question *aQuestion = [[Question alloc] init];
+    aQuestion.quiz = self.aQuiz;
+    self.questionLabel.text = aQuestion.text;
+    Choice *aChoice = [[Choice alloc] init];
+    aChoice.question = aQuestion;
     
     
-    NSArray *allKeys = [questions allKeys];
-    for (NSString *aKey in allKeys)
-    {
-        NSDictionary *aQuestion = [questions objectForKey:aKey];
-        [questionArray addObject:aQuestion];
-    }
+    
+    
+    
+    
+    
+    
+    
+//    NSArray *allKeys = [questions allKeys];
+//    for (NSString *aKey in allKeys)
+//    {
+//        NSDictionary *aQuestion = [questions objectForKey:aKey];
+//        [questionArray addObject:aQuestion];
+//    }
     
     
 //    [self.delegate updateLabel:@"A"];
-    [self loadQuestion];
+//    [self loadQuestion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,40 +152,40 @@
     return cell;
 }
 
-- (IBAction)nextTapped:(UIBarButtonItem *)sender
-{
-    self.navigationItem.hidesBackButton = YES;
-    currentQuestion++;
-    if (currentQuestion < [questionArray count])
-    {
-        [answerArray removeAllObjects];
-        [self loadQuestion];
-    }
-    else
-    {
-        [self.navigationController popViewControllerAnimated:YES];
-//        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
-}
-
-- (void)loadQuestion
-{
-    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
-    NSString *question = [answersAndQuestions objectForKey:@"Question"];
-    
-    NSArray *allKeys = [answersAndQuestions allKeys];
-    for (NSString *aKey in allKeys)
-    {
-        NSString *aChoice = [answersAndQuestions objectForKey:aKey];
-        if ([aKey containsString:@"Answer"])
-        {
-            [answerArray addObject:aChoice];
-        }
-    }
-    
-        self.questionLabel.text = question;
-        [self.answerTableView reloadData];
-}
+//- (IBAction)nextTapped:(UIBarButtonItem *)sender
+//{
+//    self.navigationItem.hidesBackButton = YES;
+//    currentQuestion++;
+//    if (currentQuestion < [questionArray count])
+//    {
+//        [answerArray removeAllObjects];
+//        [self loadQuestion];
+//    }
+//    else
+//    {
+//        [self.navigationController popViewControllerAnimated:YES];
+////        [self.navigationController popToRootViewControllerAnimated:YES];
+//    }
+//}
+//
+//- (void)loadQuestion
+//{
+//    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
+//    NSString *question = [answersAndQuestions objectForKey:@"Question"];
+//    
+//    NSArray *allKeys = [answersAndQuestions allKeys];
+//    for (NSString *aKey in allKeys)
+//    {
+//        NSString *aChoice = [answersAndQuestions objectForKey:aKey];
+//        if ([aKey containsString:@"Answer"])
+//        {
+//            [answerArray addObject:aChoice];
+//        }
+//    }
+//    
+//        self.questionLabel.text = question;
+//        [self.answerTableView reloadData];
+//}
 
 //-(void)updateLabel
 //{
