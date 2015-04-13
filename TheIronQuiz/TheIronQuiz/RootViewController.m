@@ -135,8 +135,32 @@
     
     Quiz *coreQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
     Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+    Choice *coreChoice2 = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+    Choice *coreChoice3 = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+    Choice *coreChoice4 = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
     Question *coreQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:cdStack.managedObjectContext];
     Topic *coreTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
+    
+    [self fetchFirebaseData];
+    quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
+    quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];
+    NSDictionary *quizone = [self.quizDictionary objectForKey:@"QuizOne"];
+    NSDictionary *questions = [quizone objectForKey:@"Questions"];
+    NSDictionary *questionOne = [questions objectForKey:@"QuestionOne"];
+    NSString *answerone = [questionOne objectForKey:@"AnswerOne"];
+    NSString *answertwo = [questionOne objectForKey:@"AnswerTwo"];
+    NSString *answerthree = [questionOne objectForKey:@"AnswerThree"];
+    NSString *answerfour = [questionOne objectForKey:@"AnswerFour"];
+    NSString *questionText = [questionOne objectForKey:@"QuestionOne"];
+    NSString *quizText = [self.quizDictionary objectForKey:@"QuizJuan"];
+    
+    coreQuiz.quiz = quizText;
+    coreChoice.text = answerone;
+    coreChoice2.text = answertwo;
+    coreChoice3.text = answerthree;
+    coreChoice4.text = answerfour;
+    coreQuestion.text =questionText;
+    
     
     
 //    NSDictionary *quizNumber =  [self.quizDictionary objectForKey:self.quizName];
