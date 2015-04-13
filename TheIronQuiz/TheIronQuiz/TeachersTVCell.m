@@ -12,6 +12,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.topicOfQuestion.text = @"";
+    self.questionText.text = @"";
+    self.teachersAnswerAToQuestion.text = @"";
+    self.teachersAnswerBToQuestion.text = @"";
+    self.teachersAnswerCToQuestion.text = @"";
+    self.teachersAnswerDToQuestion.text = @"";
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -8,7 +8,9 @@
 
 #import "TeachersViewController.h"
 #import "TeachersTVCell.h"
-
+#import "Quiz.h"
+#import "Question.h"
+#import "Choice.h"
 
 
 @interface TeachersViewController () <UITextFieldDelegate>
@@ -63,6 +65,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeachersTVCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    // similar to this too
+   
+    // teacherQuestions is an array consisting of
+    
+//    Question *aQuestion = teachersQuestions[indexPath.row];
+//    aQuestion.text =
+//    aQuestion.choices.text =
+//    
+//    cell.topicOfQuestion.text =
+//    cell.teachersAnswerAToQuestion =
+//    cell.teachersAnswerBToQuestion =
+//    cell.teachersAnswerCToQuestion =
+//    cell.teachersAnswerDToQuestion =
+    
+//    City *aCity = cities[indexPath.row];
+//   cell.cityNameLabel.text = aCity.name;
+//    if (aCity.currentWeather)
+//    {
+//        cell.currentConditionsSummaryLabel.text = aCity.currentWeather.summary;
+//        cell.currentTemperatureLabel.text = [aCity.currentWeather currentTemperature];
+//    }
     
     //similar to this, but, we have a custom cell.
 ////    NSString *itemList = resultsArray[indexPath.row];

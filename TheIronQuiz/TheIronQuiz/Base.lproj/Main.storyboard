@@ -218,7 +218,7 @@
                                             <outlet property="teachersAnswerAToQuestion" destination="LNX-GV-0eo" id="oli-Rf-IDa"/>
                                             <outlet property="teachersAnswerBToQuestion" destination="9Lh-9r-GH8" id="Jqy-ye-4NY"/>
                                             <outlet property="teachersAnswerCToQuestion" destination="U1i-Ln-UYe" id="t1n-1u-YRw"/>
-                                            <outlet property="teachersAnswerDtoQuestion" destination="RzT-l4-FvR" id="ZuE-CK-EYU"/>
+                                            <outlet property="teachersAnswerDToQuestion" destination="RzT-l4-FvR" id="d3s-rZ-omN"/>
                                             <outlet property="topicOfQuestion" destination="7Au-tH-5ci" id="W5V-wP-ODK"/>
                                         </connections>
                                     </tableViewCell>

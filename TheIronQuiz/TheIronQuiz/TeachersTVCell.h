@@ -18,5 +18,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *teachersAnswerCToQuestion;
 
 
-@property (weak, nonatomic) IBOutlet UITextField *teachersAnswerDtoQuestion;
+@property (weak, nonatomic) IBOutlet UITextField *teachersAnswerDToQuestion;
 @end
