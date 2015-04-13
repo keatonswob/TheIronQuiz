@@ -9,17 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol QuestionViewControllerDelegate
 
-
--(void)updateLabel:(NSString *)aString;
-
-@end
 
 
 @interface AnswerModalViewController : UIViewController 
 
-@property (strong, nonatomic) id<QuestionViewControllerDelegate> delegate;
+@property (nonatomic) NSString *answer;
 @property (weak, nonatomic) IBOutlet UILabel *submitAnswerLabel;
 
 @end
