@@ -9,6 +9,8 @@
 #import "QuestionViewController.h"
 #import "QuizPickerTableViewController.h"
 #import "AnswerModalViewController.h"
+#import "Question.h"
+#import "Choice.h"
 
 @interface QuestionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *answerTableView;
@@ -36,21 +38,30 @@
     questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
     currentQuestion = 0;
-    NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
-    NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
-//    [questionArray addObject:questions];
+    Question *aQuestion = [[Question alloc] init];
+    aQuestion.quiz = self.aQuiz;
+    self.questionLabel.text = aQuestion.text;
+    Choice *aChoice = [[Choice alloc] init];
+    aChoice.question = aQuestion;
     
     
-    NSArray *allKeys = [questions allKeys];
-    for (NSString *aKey in allKeys)
-    {
-        NSDictionary *aQuestion = [questions objectForKey:aKey];
-        [questionArray addObject:aQuestion];
-    }
     
     
-    [self.delegate updateLabel:@"A"];
-    [self loadQuestion];
+    
+    
+    
+    
+    
+//    NSArray *allKeys = [questions allKeys];
+//    for (NSString *aKey in allKeys)
+//    {
+//        NSDictionary *aQuestion = [questions objectForKey:aKey];
+//        [questionArray addObject:aQuestion];
+//    }
+    
+    
+//    [self.delegate updateLabel:@"A"];
+//    [self loadQuestion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,62 +130,62 @@
 //        
 //        cell.textLabel.text = @"row0";
 //        answerModalVC.submitAnswerLabel.text = @"Aaaa";
-        [self.delegate updateLabel:@"A"];
-    }
-    else if ([indexPath row] == 1)
-    {
-        [self.delegate updateLabel:@"B"];
-    }
-    else if ([indexPath row] == 2)
-    {
-        [self.delegate updateLabel:@"C"];
-    }
-    else if ([indexPath row] == 3)
-    {
-        [self.delegate updateLabel:@"D"];
-    }
-    else if ([indexPath row] == 4)
-    {
-        [self.delegate updateLabel:@"E"];
-    }
+//        [answerModalVC updateLabel:@"A"].delegate = self;
+//    }
+//    else if ([indexPath row] == 1)
+//    {
+//        [self.delegate updateLabel:@"B"];
+//    }
+//    else if ([indexPath row] == 2)
+//    {
+//        [self.delegate updateLabel:@"C"];
+//    }
+//    else if ([indexPath row] == 3)
+//    {
+//        [self.delegate updateLabel:@"D"];
+//    }
+//    else if ([indexPath row] == 4)
+//    {
+//        [self.delegate updateLabel:@"E"];
+}
     
     return cell;
 }
 
-- (IBAction)nextTapped:(UIBarButtonItem *)sender
-{
-    self.navigationItem.hidesBackButton = YES;
-    currentQuestion++;
-    if (currentQuestion < [questionArray count])
-    {
-        [answerArray removeAllObjects];
-        [self loadQuestion];
-    }
-    else
-    {
-        [self.navigationController popViewControllerAnimated:YES];
-//        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
-}
-
-- (void)loadQuestion
-{
-    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
-    NSString *question = [answersAndQuestions objectForKey:@"Question"];
-    
-    NSArray *allKeys = [answersAndQuestions allKeys];
-    for (NSString *aKey in allKeys)
-    {
-        NSString *aChoice = [answersAndQuestions objectForKey:aKey];
-        if ([aKey containsString:@"Answer"])
-        {
-            [answerArray addObject:aChoice];
-        }
-    }
-    
-        self.questionLabel.text = question;
-        [self.answerTableView reloadData];
-}
+//- (IBAction)nextTapped:(UIBarButtonItem *)sender
+//{
+//    self.navigationItem.hidesBackButton = YES;
+//    currentQuestion++;
+//    if (currentQuestion < [questionArray count])
+//    {
+//        [answerArray removeAllObjects];
+//        [self loadQuestion];
+//    }
+//    else
+//    {
+//        [self.navigationController popViewControllerAnimated:YES];
+////        [self.navigationController popToRootViewControllerAnimated:YES];
+//    }
+//}
+//
+//- (void)loadQuestion
+//{
+//    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
+//    NSString *question = [answersAndQuestions objectForKey:@"Question"];
+//    
+//    NSArray *allKeys = [answersAndQuestions allKeys];
+//    for (NSString *aKey in allKeys)
+//    {
+//        NSString *aChoice = [answersAndQuestions objectForKey:aKey];
+//        if ([aKey containsString:@"Answer"])
+//        {
+//            [answerArray addObject:aChoice];
+//        }
+//    }
+//    
+//        self.questionLabel.text = question;
+//        [self.answerTableView reloadData];
+//}
 
 //-(void)updateLabel
 //{

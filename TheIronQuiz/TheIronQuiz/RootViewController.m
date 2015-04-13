@@ -39,49 +39,23 @@
     [super viewDidLoad];
     
     // initialize our CoreDataStack model
+  
     cdStack = [ CoreDataStack coreDataStackWithModelName:@"TheIronQuizModel"];
-               
+    
     cdStack.coreDataStoreType = CDSStoreTypeSQL;
-               
+    
     quizes = [[NSMutableArray alloc]init];
     
     [self fetchFirebaseData];
-    
-//    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
-//    NSString *answerOne = [answersAndQuestions objectForKey:@"AnswerOne"];
-//    NSString *answerTwo = [answersAndQuestions objectForKey:@"AnswerTwo"];
-//    NSString *answerThree = [answersAndQuestions objectForKey:@"AnswerThree"];
-//    NSString *answerFour = [answersAndQuestions objectForKey:@"AnswerFour"];
-//    NSString *correct = [answersAndQuestions objectForKey:@"Correct"];
-//    NSString *question = [answersAndQuestions objectForKey:@"Question"];
-//    
+
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
-    NSFetchRequest *fetch;
-    fetch = [[ NSFetchRequest alloc] init];
-    
-    
-    // restore the quiz model
-    
-    // nab the handle to our model object
-    NSEntityDescription *entity;
-    entity = [NSEntityDescription entityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
-    
-    // init search criteria data from a persistent store
-    fetch.entity = entity;
-    
-    // populate model from persistant data!
-    quizes = nil;
-    quizes = [[ cdStack.managedObjectContext executeFetchRequest:fetch error:nil] mutableCopy];
-    // RCL: Are the Quizes the only thing we need to fetch from CoreData?
-    
-    
-    //here we need a delegate method for firbase to inform
-    // us the firebase database has completed its download.
+  
     
 
     
@@ -133,10 +107,40 @@
     
     //  restore data into our persistant model object
     
-    Quiz *coreQuiz = [ NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext ];  // model object aQuiz retrieved from core data stack.
-    Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+    Quiz *coreQuiz = [NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];  // model object aQuiz retrieved from core data stack.
     Question *coreQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:cdStack.managedObjectContext];
-    Topic *coreTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
+    coreQuestion.quiz = coreQuiz;
+//    Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+//    coreChoice.question = coreQuestion;
+//    Choice *coreChoice2 = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+//    coreChoice2.question = coreQuestion;
+//    Choice *coreChoice3 = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+//    coreChoice3.question = coreQuestion;
+//    Choice *coreChoice4 = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+//    coreChoice4.question = coreQuestion;
+//
+//    Topic *coreTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
+//    coreTopic.quiz = coreQuiz;
+//    
+//
+//    NSDictionary *quizone = [self.quizDictionary objectForKey:@"QuizOne"];
+//    NSDictionary *questions = [quizone objectForKey:@"Questions"];
+//    NSDictionary *questionOne = [questions objectForKey:@"QuestionOne"];
+//    NSString *answerone = [questionOne objectForKey:@"AnswerOne"];
+//    NSString *answertwo = [questionOne objectForKey:@"AnswerTwo"];
+//    NSString *answerthree = [questionOne objectForKey:@"AnswerThree"];
+//    NSString *answerfour = [questionOne objectForKey:@"AnswerFour"];
+//    NSString *questionText = [questionOne objectForKey:@"QuestionOne"];
+//    NSString *quizText = [self.quizDictionary objectForKey:@"QuizJuan"];
+//    
+//    
+//    coreQuiz.quiz = quizText;
+//    coreChoice.text = answerone;
+//    coreChoice2.text = answertwo;
+//    coreChoice3.text = answerthree;
+//    coreChoice4.text = answerfour;
+//    coreQuestion.text =questionText;
+    
     
     
 //    NSDictionary *quizNumber =  [self.quizDictionary objectForKey:self.quizName];
@@ -180,6 +184,10 @@
     [self saveCoreDataUpdates];
 //    }
     
+    
+    
+    
+    
 }
 
 
@@ -189,8 +197,8 @@
     [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSLog(@"%@", snapshot.value);
         self.quizDictionary = snapshot.value;
-        quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
-        quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];
+//        quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
+//        quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];
         
         
         
