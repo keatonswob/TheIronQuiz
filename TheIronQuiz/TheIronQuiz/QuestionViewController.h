@@ -10,10 +10,10 @@
 #import "AnswerModalViewController.h"
 
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController <QuestionViewControllerDelegate>
 
 
-@property (strong, nonatomic) id<QuestionViewControllerDelegate> delegate;
+
 @property(strong, nonatomic) NSDictionary *questionDictionary;
 @property(strong, nonatomic) NSString *quizName;
 
