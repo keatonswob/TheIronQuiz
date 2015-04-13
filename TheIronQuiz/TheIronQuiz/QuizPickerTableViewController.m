@@ -8,6 +8,8 @@
 
 #import "QuizPickerTableViewController.h"
 #import "QuestionViewController.h"
+#import "CoreDataStack.h"
+#import "Quiz.h"
 
 #import <Firebase/Firebase.h>
 
@@ -17,6 +19,7 @@
     NSString *quizOne;
     NSString *quizTwo;
     NSString *quiz;
+    CoreDataStack *cdStack;
     
     
 }
@@ -30,16 +33,33 @@
    
     
     quizzes = [[NSMutableArray alloc] init];
-    self.quizDictionary = [[NSDictionary alloc] init];
     quizOne = [[NSString alloc] init];
     quizTwo = [[NSString alloc] init];
     quiz = [[NSString alloc] init];
-    [self fetchFirebaseData];
+    
+    cdStack = [ CoreDataStack coreDataStackWithModelName:@"TheIronQuizModel"];
+    
+    cdStack.coreDataStoreType = CDSStoreTypeSQL;
+  
+   
+   
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        quizzes = nil;
+        quizzes = [[cdStack.managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Table view data source
@@ -55,8 +75,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
-    cell.textLabel.text = quizzes[indexPath.row];
-    
+    Quiz *aQuiz = quizzes[indexPath.row];
+    cell.textLabel.text = aQuiz.quiz;
     
     return cell;
 }
@@ -66,23 +86,7 @@
 //    quiz = cell.textLabel.text;
 //    
 //}
-
--(void)fetchFirebaseData
-{
-    Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com/Quizzes"];
-    [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"%@", snapshot.value);
-        self.quizDictionary = snapshot.value;
-        quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
-        quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];
-        
-        [quizzes addObject:quizOne];
-        [quizzes addObject:quizTwo];
-        [self.tableView reloadData];
-    }];
-    
-    
-}
+//
 
 
 
@@ -132,10 +136,11 @@
     {
        
         UITableViewCell *cell = sender;
-        quiz = cell.textLabel.text;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Quiz *aQuiz = quizzes[indexPath.row];
+        
         UINavigationController *navC = [segue destinationViewController];
         QuestionViewController *questionVC = [navC viewControllers][0];
-        questionVC.questionDictionary = self.quizDictionary;
         questionVC.quizName = quiz;
         
         
