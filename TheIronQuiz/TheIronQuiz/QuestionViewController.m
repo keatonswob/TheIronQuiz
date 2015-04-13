@@ -49,7 +49,7 @@
     }
     
     
-    [self.delegate updateLabel:@"A"];
+//    [self.delegate updateLabel:@"A"];
     [self loadQuestion];
 }
 
@@ -119,24 +119,24 @@
 //        
 //        cell.textLabel.text = @"row0";
 //        answerModalVC.submitAnswerLabel.text = @"Aaaa";
-        [self.delegate updateLabel:@"A"];
-    }
-    else if ([indexPath row] == 1)
-    {
-        [self.delegate updateLabel:@"B"];
-    }
-    else if ([indexPath row] == 2)
-    {
-        [self.delegate updateLabel:@"C"];
-    }
-    else if ([indexPath row] == 3)
-    {
-        [self.delegate updateLabel:@"D"];
-    }
-    else if ([indexPath row] == 4)
-    {
-        [self.delegate updateLabel:@"E"];
-    }
+//        [answerModalVC updateLabel:@"A"].delegate = self;
+//    }
+//    else if ([indexPath row] == 1)
+//    {
+//        [self.delegate updateLabel:@"B"];
+//    }
+//    else if ([indexPath row] == 2)
+//    {
+//        [self.delegate updateLabel:@"C"];
+//    }
+//    else if ([indexPath row] == 3)
+//    {
+//        [self.delegate updateLabel:@"D"];
+//    }
+//    else if ([indexPath row] == 4)
+//    {
+//        [self.delegate updateLabel:@"E"];
+}
     
     return cell;
 }

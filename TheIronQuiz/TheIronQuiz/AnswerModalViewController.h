@@ -17,9 +17,9 @@
 @end
 
 
-@interface AnswerModalViewController : UIViewController <QuestionViewControllerDelegate>
+@interface AnswerModalViewController : UIViewController 
 
-
+@property (strong, nonatomic) id<QuestionViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *submitAnswerLabel;
 
 @end
