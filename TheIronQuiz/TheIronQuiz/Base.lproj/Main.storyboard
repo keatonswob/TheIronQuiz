@@ -257,12 +257,11 @@
                         <outlet property="cancelQuestion" destination="NHy-xW-pit" id="9Wy-FV-zKU"/>
                         <outlet property="quizID" destination="ImY-gN-Akc" id="4hf-Jz-S2N"/>
                         <outlet property="saveTeacherQuestion" destination="S99-FH-bXY" id="0lp-7n-6hQ"/>
-                        <outlet property="topicOfQuestion" destination="7Au-tH-5ci" id="530-Lq-lak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpg-ZF-cxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3013" y="-365"/>
+            <point key="canvasLocation" x="3326" y="-359"/>
         </scene>
         <!--Quiz Picker Table View Controller-->
         <scene sceneID="Pm9-Vm-xk8">

@@ -69,8 +69,8 @@
    
     // teacherQuestions is an array consisting of
     
-//    Question *aQuestion = teachersQuestions[indexPath.row];
-//    aQuestion.text =
+      Question *aQuestion = teachersQuestions[indexPath.row];
+//      aQuestion.text =
 //    aQuestion.choices.text =
 //    
 //    cell.topicOfQuestion.text =
