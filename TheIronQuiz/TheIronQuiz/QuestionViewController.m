@@ -36,7 +36,7 @@
     questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
     currentQuestion = 0;
-//    NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
+    NSDictionary *quizNumber =  [self.questionDictionary objectForKey:self.quizName];
     NSDictionary *questions = [quizNumber objectForKey:@"Questions"];
 //    [questionArray addObject:questions];
     
