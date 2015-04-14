@@ -40,7 +40,11 @@
     answerArray = [[NSMutableArray alloc] init];
     currentQuestion = 0;
     Question *aQuestion = [[Question alloc] init];
-    aQuestion.quiz = self.aQuiz;
+    NSSet *questions = self.aQuiz.questions;
+    for (Question *aQuestion in questions)
+    {
+        aQuestion.choices
+    }
     self.questionLabel.text = aQuestion.text;
     Choice *aChoice = [[Choice alloc] init];
     aChoice.question = aQuestion;
