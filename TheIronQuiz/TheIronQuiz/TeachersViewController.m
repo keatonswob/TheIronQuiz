@@ -60,9 +60,10 @@
     return [teachersQuestions count];
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeachersTVCell" forIndexPath:indexPath];
+// step one.. change class of cell from .. to TeachersTVCell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TeachersTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeachersTVCell" forIndexPath:indexPath];
     
     // Configure the cell...
     // similar to this too
@@ -74,10 +75,10 @@
 //    aQuestion.choices.text =
 //    
 //    cell.topicOfQuestion.text =
-//    cell.teachersAnswerAToQuestion =
-//    cell.teachersAnswerBToQuestion =
-//    cell.teachersAnswerCToQuestion =
-//    cell.teachersAnswerDToQuestion =
+//    cell.teachersAnswerAToQuestion.text =
+//    cell.teachersAnswerBToQuestion.text =
+//    cell.teachersAnswerCToQuestion.text =
+//    cell.teachersAnswerDToQuestion.text =
     
 //    City *aCity = cities[indexPath.row];
 //   cell.cityNameLabel.text = aCity.name;
@@ -141,5 +142,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark -textfield delegates
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    BOOL rc = NO;
+    
+    if (![textField.text isEqualToString:@""]) //we have txt
+    {
+        [textField resignFirstResponder];
+        rc = YES;
+        
+        UIView *contentView = [textField superview];
+        
+        UITableViewCell *cell = (UITableViewCell *)[contentView superview];
+        NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        
+        TodoItem *anItem = todoItems[path.row];
+        anItem.title = textField.text;
+        
+    }
+    
+    return rc;
+}
 
 @end
