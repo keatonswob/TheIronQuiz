@@ -11,7 +11,7 @@
 #import "Quiz.h"
 
 
-@interface QuestionViewController : UIViewController <QuestionViewControllerDelegate>
+@interface QuestionViewController : UIViewController
 
 
 

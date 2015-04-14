@@ -25,6 +25,7 @@
     NSMutableArray *questionArray;
     NSMutableArray *answerArray;
     NSInteger currentQuestion;
+    NSInteger selectedAnswer;
     AnswerModalViewController *answerModalVC;
 }
 
@@ -73,13 +74,39 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"ShowWinningTicketSegue"])
-//    {
-//        AnswerModalViewController *answerModalViewC = (AnswerModalViewController *)[segue destinationViewController];
-//        answerModalViewC.delegate = self; //do work
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowAnswerSegue"])
+    {
+        AnswerModalViewController *answerModalViewC = (AnswerModalViewController *)[segue destinationViewController];
+        
+        switch (selectedAnswer)
+        {
+                case 0:
+                    answerModalViewC.answer = @"A";
+                break;
+                
+                case 1:
+                    answerModalViewC.answer = @"B";
+                break;
+                
+                case 2:
+                    answerModalViewC.answer = @"C";
+                break;
+                
+                case 3:
+                    answerModalViewC.answer = @"D";
+                break;
+                
+                case 4:
+                    answerModalViewC.answer = @"E";
+                break;
+                
+            default:
+            break;
+        }
+}
+}
 
 
 #pragma mark - Table view data source
@@ -110,11 +137,11 @@
 //    }
     
     cell.textLabel.text = answerArray[indexPath.row];
-    
+    selectedAnswer = indexPath.row;
 
         
-    if ([indexPath row] == 0)
-    {
+//    if ([indexPath row] == 0)
+//    {
 //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //
 //        UIView *bgColorView = [[UIView alloc] init];
@@ -147,7 +174,7 @@
 //    else if ([indexPath row] == 4)
 //    {
 //        [self.delegate updateLabel:@"E"];
-}
+//}
     
     return cell;
 }

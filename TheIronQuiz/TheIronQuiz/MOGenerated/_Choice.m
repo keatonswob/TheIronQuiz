@@ -5,7 +5,6 @@
 
 const struct ChoiceAttributes ChoiceAttributes = {
 	.choice = @"choice",
-	.correct = @"correct",
 	.text = @"text",
 };
 
@@ -43,8 +42,6 @@ const struct ChoiceRelationships ChoiceRelationships = {
 }
 
 @dynamic choice;
-
-@dynamic correct;
 
 @dynamic text;
 

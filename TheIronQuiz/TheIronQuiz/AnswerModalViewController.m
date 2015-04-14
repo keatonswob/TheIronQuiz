@@ -17,12 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self updateLabel:@"A"];
-//    self.submitAnswerLabel.text = @"ABC";
-//    [self.delegate updateLabel];
-//    AnswerModalViewController.delegate = self
-    // Do any additional setup after loading the view.
-//    [self updateLabel:@""].delegate = self;
+    [self updateLabel:self.answer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,11 +36,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-//-(void)updateLabel
-//{
-//    self.submitAnswerLabel.text = @"AAA";
-//}
 
 -(void)updateLabel:(NSString *)aString
 {
