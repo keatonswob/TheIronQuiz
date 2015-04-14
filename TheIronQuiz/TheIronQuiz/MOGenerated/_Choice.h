@@ -5,7 +5,6 @@
 
 extern const struct ChoiceAttributes {
 	__unsafe_unretained NSString *choice;
-	__unsafe_unretained NSString *correct;
 	__unsafe_unretained NSString *text;
 } ChoiceAttributes;
 
@@ -28,10 +27,6 @@ extern const struct ChoiceRelationships {
 
 //- (BOOL)validateChoice:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* correct;
-
-//- (BOOL)validateCorrect:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) NSString* text;
 
 //- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
@@ -46,9 +41,6 @@ extern const struct ChoiceRelationships {
 
 - (NSString*)primitiveChoice;
 - (void)setPrimitiveChoice:(NSString*)value;
-
-- (NSString*)primitiveCorrect;
-- (void)setPrimitiveCorrect:(NSString*)value;
 
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;
