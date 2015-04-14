@@ -39,6 +39,7 @@
     questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
     currentQuestion = 0;
+    
 //    Question *aQuestion = [[Question alloc] init];
 //    Choice *aChoice = [[Choice alloc] init];
 //    NSString *questionTextLabel = aQuestion.text;
@@ -223,13 +224,14 @@
 //            [answerArray addObject:aChoice];
 //        }
 //    }
-//    Question *aQuestion = [[Question alloc] init];
 //    NSString *question = aQuestion.text;
     NSSet *questions = self.aQuiz.questions;
     for (Question *aQuestion in questions)
     {
-//        NSString *aQuestionString = aQuestion.text;
-//        [questionArray addObject:aQuestionString];
+        NSString *question = aQuestion.text;
+        self.questionLabel.text = question;
+       
+        
         
         NSSet *aChoiceSet = aQuestion.choices;
         for (Choice *aChoice in aChoiceSet)

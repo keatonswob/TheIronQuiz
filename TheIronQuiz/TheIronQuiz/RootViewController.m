@@ -130,7 +130,7 @@
     NSString *answertwo = [questionOne objectForKey:@"AnswerTwo"];
     NSString *answerthree = [questionOne objectForKey:@"AnswerThree"];
     NSString *answerfour = [questionOne objectForKey:@"AnswerFour"];
-    NSString *questionText = [questionOne objectForKey:@"QuestionOne"];
+    NSString *questionText = [questionOne objectForKey:@"Question"];
     NSString *quizText = [self.quizDictionary objectForKey:@"QuizJuan"];
     
     
