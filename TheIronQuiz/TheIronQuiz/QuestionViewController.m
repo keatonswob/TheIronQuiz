@@ -43,19 +43,19 @@
 //    Question *aQuestion = [[Question alloc] init];
 //    Choice *aChoice = [[Choice alloc] init];
 //    NSString *questionTextLabel = aQuestion.text;
-//    NSSet *questions = self.aQuiz.questions;
-//    for (Question *aQuestion in questions)
-//    {
-////        NSString *aQuestionString = aQuestion.text;
-////        [questionArray addObject:aQuestionString];
-//        
+    NSSet *questions = self.aQuiz.questions;
+    for (Question *aQuestion in questions)
+    {
+        NSString *aQuestionString = aQuestion.text;
+        [questionArray addObject:aQuestionString];
+        
 //        NSSet *aChoiceSet = aQuestion.choices;
 //        for (Choice *aChoice in aChoiceSet)
 //        {
 //            NSString *aChoiceString = aChoice.text;
 //            [answerArray addObject:aChoiceString];
 //        }
-//    }
+    }
 //    self.questionLabel.text = questionTextLabel;
 //
 //    aChoice.question = aQuestion;
@@ -152,7 +152,7 @@
 //    }
     
     cell.textLabel.text = answerArray[indexPath.row];
-    selectedAnswer = indexPath.row;
+    
 
         
 //    if ([indexPath row] == 0)
@@ -192,6 +192,11 @@
 //}
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectedAnswer = indexPath.row;
 }
 
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
