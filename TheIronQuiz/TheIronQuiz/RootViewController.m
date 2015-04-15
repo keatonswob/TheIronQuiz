@@ -148,10 +148,9 @@
     {
         NSDictionary *aQuiz = [self.quizDictionary objectForKey:aKey];
         Quiz *coreQuiz = [NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
-        NSLog(@"aQuiz log %@", aQuiz);
         coreQuiz.quiz = aKey;
 
-        NSDictionary *questions = [self.quizDictionary objectForKey:@"Questions"];
+        NSDictionary *questions = [aQuiz objectForKey:@"Questions"];
         NSArray *allQuestionKeys = [questions allKeys];
         for (NSString *aKey in allQuestionKeys)
         {
@@ -164,13 +163,14 @@
                 if ([aQuestionOrAnswer isEqualToString:@"Question"])
                 {
                     NSString *questionText = [aQuestion objectForKey:aQuestionOrAnswer];
-                    
+                    NSLog(@"%@ here be questionText", questionText);
                     coreQuestion.text = questionText;
                 }
                 else
                 {
                     NSString *choiceText = [aQuestion objectForKey:aQuestionOrAnswer];
                     Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+                    NSLog(@"%@ here be choiceText", choiceText);
                     coreChoice.text = choiceText;
                 }
             }
@@ -191,7 +191,6 @@
 {
     Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com/Quizzes"];
     [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"%@", snapshot.value);
         self.quizDictionary = snapshot.value;
 //        quizOne = [self.quizDictionary objectForKey:@"QuizJuan"];
 //        quizTwo = [self.quizDictionary objectForKey:@"QuizDos"];

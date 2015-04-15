@@ -233,126 +233,126 @@
 
 #pragma mark -textfield delegates
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    // user has pressed a return in some field
-    // now do this:
-    
-    BOOL rc = NO;
-    
-    UIView *contentView = [textField superview];
-       
-    // what cell are we in, what is its path?
-    // (assuming we are only inputing text in this cell)
-    
-    TeachersTVCell *cell = (TeachersTVCell *)[contentView superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
-        
-    Question *aQuestion = teachersQuestions[indexPath.row];//one question
-    Choice *aChoice = teachersChoices[indexPath.row]; // four choices
-  
-    // shift keyboard input to the name textfield
-    //ugg, "text view" does not have a place holder options in sboard
-    // this will not work until placeholder is somehow set.
-    if ([textField.placeholder isEqualToString:@"Question"])
-       {
-           if([textField.text isEqualToString:@""])
-           {
-              [cell.questionText becomeFirstResponder];
-           }
-           else
-           {
-               // if not the question text field,
-               // update the question text.
-               // and resign the keyboard
-               
-               aQuestion.text = textField.text;
-                
-               rc = YES; // yes, text in a textfield completed
-                    
-               [textField resignFirstResponder];
-                   
-               // save changes to core data
-                    
-               // [self saveCoreDataUpdates];
-               
-           }
-       }
-    else if([textField.placeholder isEqualToString:@"Answer A"])
-       {
-           if([textField.text isEqualToString:@""])
-               {
-                   [cell.teachersAnswerAToQuestion becomeFirstResponder];
-               }
-               else
-               {
-                  //  aChoice.text = textField.text;
-                   [fourChoices setObject:textField forKey:@"A"];
-                   
-                   // marker1
-                    rc = YES;  //yes we have text in field
-                    [textField resignFirstResponder];
-                    
-                    // save changes to core data
-                    
-                   // self saveCoreDataUpdates];
-               }
-       }
-    else if([textField.placeholder isEqualToString:@"Answer B"])
-       {
-            if([textField.text isEqualToString:@""])
-               {
-                   [cell.teachersAnswerBToQuestion becomeFirstResponder];
-               }
-               else
-               {
-                   aChoice.text = textField.text;
-                   rc = YES;  //yes we have text in field
-                   [textField resignFirstResponder];
-                    
-                   // save changes to core data
-                    
-                   // self saveCoreDataUpdates];
-               }
-       }
-    else if([textField.placeholder isEqualToString:@"Answer C"])
-       {
-           if([textField.text isEqualToString:@""])
-           {
-              [cell.teachersAnswerCToQuestion becomeFirstResponder];
-           }
-           else
-           {
-              aChoice.text = textField.text;
-              rc = YES;  //yes we have text in field
-              [textField resignFirstResponder];
-               
-               // save changes to core data
-               //  [self saveCoreDataUpdates];
-           }
-       }
-    else if([textField.placeholder isEqualToString:@"Answer D"])
-       {
-           if([textField.text isEqualToString:@""])
-           {
-              [cell.teachersAnswerDToQuestion becomeFirstResponder];
-           }
-           else
-           {
-               aChoice.text = textField.text;
-               rc = YES;  //yes we have text in field
-               [textField resignFirstResponder];
-               
-                // save changes to core data
-                    
-                // [self saveCoreDataUpdates];
-           }
-       }
-                 
-    }
-    
-    return rc;
-}
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    // user has pressed a return in some field
+//    // now do this:
+//    
+//    BOOL rc = NO;
+//    
+//    UIView *contentView = [textField superview];
+//       
+//    // what cell are we in, what is its path?
+//    // (assuming we are only inputing text in this cell)
+//    
+//    TeachersTVCell *cell = (TeachersTVCell *)[contentView superview];
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+//    
+//        
+//    Question *aQuestion = teachersQuestions[indexPath.row];//one question
+//    Choice *aChoice = teachersChoices[indexPath.row]; // four choices
+//  
+//    // shift keyboard input to the name textfield
+//    //ugg, "text view" does not have a place holder options in sboard
+//    // this will not work until placeholder is somehow set.
+//    if ([textField.placeholder isEqualToString:@"Question"])
+//       {
+//           if([textField.text isEqualToString:@""])
+//           {
+//              [cell.questionText becomeFirstResponder];
+//           }
+//           else
+//           {
+//               // if not the question text field,
+//               // update the question text.
+//               // and resign the keyboard
+//               
+//               aQuestion.text = textField.text;
+//                
+//               rc = YES; // yes, text in a textfield completed
+//                    
+//               [textField resignFirstResponder];
+//                   
+//               // save changes to core data
+//                    
+//               // [self saveCoreDataUpdates];
+//               
+//           }
+//       }
+//    else if([textField.placeholder isEqualToString:@"Answer A"])
+//       {
+//           if([textField.text isEqualToString:@""])
+//               {
+//                   [cell.teachersAnswerAToQuestion becomeFirstResponder];
+//               }
+//               else
+//               {
+//                  //  aChoice.text = textField.text;
+//                   [fourChoices setObject:textField forKey:@"A"];
+//                   
+//                   // marker1
+//                    rc = YES;  //yes we have text in field
+//                    [textField resignFirstResponder];
+//                    
+//                    // save changes to core data
+//                    
+//                   // self saveCoreDataUpdates];
+//               }
+//       }
+//    else if([textField.placeholder isEqualToString:@"Answer B"])
+//       {
+//            if([textField.text isEqualToString:@""])
+//               {
+//                   [cell.teachersAnswerBToQuestion becomeFirstResponder];
+//               }
+//               else
+//               {
+//                   aChoice.text = textField.text;
+//                   rc = YES;  //yes we have text in field
+//                   [textField resignFirstResponder];
+//                    
+//                   // save changes to core data
+//                    
+//                   // self saveCoreDataUpdates];
+//               }
+//       }
+//    else if([textField.placeholder isEqualToString:@"Answer C"])
+//       {
+//           if([textField.text isEqualToString:@""])
+//           {
+//              [cell.teachersAnswerCToQuestion becomeFirstResponder];
+//           }
+//           else
+//           {
+//              aChoice.text = textField.text;
+//              rc = YES;  //yes we have text in field
+//              [textField resignFirstResponder];
+//               
+//               // save changes to core data
+//               //  [self saveCoreDataUpdates];
+//           }
+//       }
+//    else if([textField.placeholder isEqualToString:@"Answer D"])
+//       {
+//           if([textField.text isEqualToString:@""])
+//           {
+//              [cell.teachersAnswerDToQuestion becomeFirstResponder];
+//           }
+//           else
+//           {
+//               aChoice.text = textField.text;
+//               rc = YES;  //yes we have text in field
+//               [textField resignFirstResponder];
+//               
+//                // save changes to core data
+//                    
+//                // [self saveCoreDataUpdates];
+//           }
+//       }
+//                 
+//    }
+//    
+//    return rc;
+//}
 
 @end
