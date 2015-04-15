@@ -16,9 +16,9 @@
 @interface QuizPickerTableViewController ()
 {
     NSMutableArray *quizzes;
-    NSString *quizOne;
-    NSString *quizTwo;
-    NSString *quiz;
+//    NSString *quizOne;
+//    NSString *quizTwo;
+//    NSString *quiz;
     CoreDataStack *cdStack;
     
     
@@ -33,9 +33,9 @@
    
     
     quizzes = [[NSMutableArray alloc] init];
-    quizOne = [[NSString alloc] init];
-    quizTwo = [[NSString alloc] init];
-    quiz = [[NSString alloc] init];
+//    quizOne = [[NSString alloc] init];
+//    quizTwo = [[NSString alloc] init];
+//    quiz = [[NSString alloc] init];
     
     cdStack = [ CoreDataStack coreDataStackWithModelName:@"TheIronQuizModel"];
     
