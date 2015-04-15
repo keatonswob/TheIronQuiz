@@ -116,7 +116,7 @@
 //    Topic *coreTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
 //    coreTopic.quiz = coreQuiz;
     
-    
+//    Quiz *coreQuiz = [NSEntityDescription insertNewObjectForEntityForName:@"Quiz" inManagedObjectContext:cdStack.managedObjectContext];
 //
 //    NSDictionary *quizone = [self.quizDictionary objectForKey:@"QuizOne"];
 //    NSDictionary *questions = [quizone objectForKey:@"Questions"];
@@ -144,6 +144,7 @@
     
     
     NSArray *allQuizKeys = [self.quizDictionary allKeys];
+
     for (NSString *aKey in allQuizKeys)
     {
         NSDictionary *aQuiz = [self.quizDictionary objectForKey:aKey];
@@ -156,23 +157,22 @@
         {
             NSDictionary *aQuestion = [questions objectForKey:aKey];
             Question *coreQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:cdStack.managedObjectContext];
-            NSArray *allAnswerKeys = [aQuestion allKeys];
+            coreQuestion.quiz = coreQuiz;
             
-            for (NSString *aQuestionOrAnswer in allAnswerKeys)
+       
+            NSDictionary *answerDic = [aQuestion objectForKey:@"Answers"]; // Answers as a Dictionary
+            NSString *questionString = [aQuestion objectForKey:@"Question"];
+//            NSArray *allQuestionKeys = [questionDic allKeys]; // Answers and Question
+            coreQuestion.text = questionString;
+            NSArray *allAnswerKeys = [answerDic allKeys];
+        
+            for (NSString *aAnswerKey in allAnswerKeys)
             {
-                if ([aQuestionOrAnswer isEqualToString:@"Question"])
-                {
-                    NSString *questionText = [aQuestion objectForKey:aQuestionOrAnswer];
-                    NSLog(@"%@ here be questionText", questionText);
-                    coreQuestion.text = questionText;
-                }
-                else
-                {
-                    NSString *choiceText = [aQuestion objectForKey:aQuestionOrAnswer];
-                    Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
-                    NSLog(@"%@ here be choiceText", choiceText);
-                    coreChoice.text = choiceText;
-                }
+                NSString *choiceText = [answerDic objectForKey:aAnswerKey];
+                Choice *coreChoice = [NSEntityDescription insertNewObjectForEntityForName:@"Choice" inManagedObjectContext:cdStack.managedObjectContext];
+                coreChoice.question = coreQuestion;
+                //                    NSLog(@"%@ here be choiceText", choiceText);
+                coreChoice.text = choiceText;
             }
         }
     }
