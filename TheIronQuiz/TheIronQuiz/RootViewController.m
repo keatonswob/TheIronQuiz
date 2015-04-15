@@ -122,6 +122,7 @@
     Topic *coreTopic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:cdStack.managedObjectContext];
     coreTopic.quiz = coreQuiz;
     
+    
 
     NSDictionary *quizone = [self.quizDictionary objectForKey:@"QuizOne"];
     NSDictionary *questions = [quizone objectForKey:@"Questions"];
@@ -130,7 +131,7 @@
     NSString *answertwo = [questionOne objectForKey:@"AnswerTwo"];
     NSString *answerthree = [questionOne objectForKey:@"AnswerThree"];
     NSString *answerfour = [questionOne objectForKey:@"AnswerFour"];
-    NSString *questionText = [questionOne objectForKey:@"QuestionOne"];
+    NSString *questionText = [questionOne objectForKey:@"Question"];
     NSString *quizText = [self.quizDictionary objectForKey:@"QuizJuan"];
     
     
@@ -152,16 +153,31 @@
 //    for (NSString *aKey in allQuizKeys)
 //    {
 //        NSString *aQuiz = [self.quizDictionary objectForKey:aKey];
-//        [coreQuiz.quiz ]
+//        NSLog(@"aQuiz log %@", aQuiz);
+//        coreQuiz.quiz = aQuiz;
+//        
 //    }
-//    
+////  //RCL :Code I was working on V
 //    NSArray *allKeys = [questions allKeys];
 //    for (NSString *aKey in allKeys)
 //    {
-//        NSString *aQuestion = [questions objectForKey:aKey];
-//        [coreQuestion.question addObject:aQuestion];
+//        NSDictionary *aQuestion = [questions objectForKey:aKey];
+//        NSArray *allQuestionKeys = [aQuestion allKeys];
+//        
+//        for (NSString *aQuestion in allQuestionKeys)
+//        {
+//            NSString *aChoice
+//            if ([aQuestion containsString:@"Answer"])
+//            {
+//                coreChoice.text = aQuestion;
+//            }
+//            else if ([aQuestion containsString:@"Question"])
+//            {
+//                coreQuestion.text = aQuestion;
+//            }
+//        }
 //    }
-    
+    //RCL :Code I was working on ^
     
     // RCL: may need to do some parsing here after we bring in Firebase to actually assign these values
     
@@ -193,7 +209,7 @@
 
 -(void)fetchFirebaseData
 {
-    Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com/Quizzes"];
+    Firebase *fb = [[Firebase alloc] initWithUrl: @"https://theironquiz.firebaseio.com"];
     [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSLog(@"%@", snapshot.value);
         self.quizDictionary = snapshot.value;

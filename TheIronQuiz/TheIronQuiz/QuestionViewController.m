@@ -39,11 +39,26 @@
     questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
     currentQuestion = 0;
-    Question *aQuestion = [[Question alloc] init];
-    aQuestion.quiz = self.aQuiz;
-    self.questionLabel.text = aQuestion.text;
-    Choice *aChoice = [[Choice alloc] init];
-    aChoice.question = aQuestion;
+    
+//    Question *aQuestion = [[Question alloc] init];
+//    Choice *aChoice = [[Choice alloc] init];
+//    NSString *questionTextLabel = aQuestion.text;
+    NSSet *questions = self.aQuiz.questions;
+    for (Question *aQuestion in questions)
+    {
+        NSString *aQuestionString = aQuestion.text;
+        [questionArray addObject:aQuestionString];
+        
+//        NSSet *aChoiceSet = aQuestion.choices;
+//        for (Choice *aChoice in aChoiceSet)
+//        {
+//            NSString *aChoiceString = aChoice.text;
+//            [answerArray addObject:aChoiceString];
+//        }
+    }
+//    self.questionLabel.text = questionTextLabel;
+//
+//    aChoice.question = aQuestion;
     
     
     
@@ -62,7 +77,7 @@
     
     
 //    [self.delegate updateLabel:@"A"];
-//    [self loadQuestion];
+    [self loadQuestion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,7 +152,7 @@
 //    }
     
     cell.textLabel.text = answerArray[indexPath.row];
-    selectedAnswer = indexPath.row;
+    
 
         
 //    if ([indexPath row] == 0)
@@ -179,24 +194,29 @@
     return cell;
 }
 
-//- (IBAction)nextTapped:(UIBarButtonItem *)sender
-//{
-//    self.navigationItem.hidesBackButton = YES;
-//    currentQuestion++;
-//    if (currentQuestion < [questionArray count])
-//    {
-//        [answerArray removeAllObjects];
-//        [self loadQuestion];
-//    }
-//    else
-//    {
-//        [self.navigationController popViewControllerAnimated:YES];
-////        [self.navigationController popToRootViewControllerAnimated:YES];
-//    }
-//}
-//
-//- (void)loadQuestion
-//{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectedAnswer = indexPath.row;
+}
+
+- (IBAction)nextTapped:(UIBarButtonItem *)sender
+{
+    self.navigationItem.hidesBackButton = YES;
+    currentQuestion++;
+    if (currentQuestion < [questionArray count])
+    {
+        [answerArray removeAllObjects];
+        [self loadQuestion];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+- (void)loadQuestion
+{
 //    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
 //    NSString *question = [answersAndQuestions objectForKey:@"Question"];
 //    
@@ -209,10 +229,26 @@
 //            [answerArray addObject:aChoice];
 //        }
 //    }
-//    
+//    NSString *question = aQuestion.text;
+    NSSet *questions = self.aQuiz.questions;
+    for (Question *aQuestion in questions)
+    {
+        NSString *question = aQuestion.text;
+        self.questionLabel.text = question;
+       
+        
+        
+        NSSet *aChoiceSet = aQuestion.choices;
+        for (Choice *aChoice in aChoiceSet)
+        {
+            NSString *aChoiceString = aChoice.text;
+            [answerArray addObject:aChoiceString];
+        }
+    }
+    
 //        self.questionLabel.text = question;
-//        [self.answerTableView reloadData];
-//}
+        [self.answerTableView reloadData];
+}
 
 //-(void)updateLabel
 //{
