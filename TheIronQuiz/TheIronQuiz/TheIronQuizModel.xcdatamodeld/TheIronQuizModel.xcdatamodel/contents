@@ -17,6 +17,7 @@
         <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="quiz" inverseEntity="Topic" syncable="YES"/>
     </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="quiz" maxCount="1" deletionRule="Nullify" destinationEntity="Quiz" inverseName="topics" inverseEntity="Quiz" syncable="YES"/>
     </entity>
@@ -24,6 +25,6 @@
         <element name="Choice" positionX="-524" positionY="-171" width="128" height="88"/>
         <element name="Question" positionX="-722" positionY="-162" width="128" height="103"/>
         <element name="Quiz" positionX="-911" positionY="-234" width="128" height="88"/>
-        <element name="Topic" positionX="-954" positionY="-0" width="128" height="73"/>
+        <element name="Topic" positionX="-954" positionY="-0" width="128" height="88"/>
     </elements>
 </model>

@@ -4,6 +4,7 @@
 #import "_Topic.h"
 
 const struct TopicAttributes TopicAttributes = {
+	.text = @"text",
 	.topic = @"topic",
 };
 
@@ -39,6 +40,8 @@ const struct TopicRelationships TopicRelationships = {
 
 	return keyPaths;
 }
+
+@dynamic text;
 
 @dynamic topic;
 

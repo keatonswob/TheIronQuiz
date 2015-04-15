@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct TopicAttributes {
+	__unsafe_unretained NSString *text;
 	__unsafe_unretained NSString *topic;
 } TopicAttributes;
 
@@ -22,6 +23,10 @@ extern const struct TopicRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) TopicID* objectID;
 
+@property (nonatomic, strong) NSString* text;
+
+//- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* topic;
 
 //- (BOOL)validateTopic:(id*)value_ error:(NSError**)error_;
@@ -33,6 +38,9 @@ extern const struct TopicRelationships {
 @end
 
 @interface _Topic (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString*)primitiveText;
+- (void)setPrimitiveText:(NSString*)value;
 
 - (NSString*)primitiveTopic;
 - (void)setPrimitiveTopic:(NSString*)value;
