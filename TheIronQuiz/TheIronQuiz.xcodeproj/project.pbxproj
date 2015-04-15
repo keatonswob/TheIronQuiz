@@ -37,12 +37,12 @@
 		18A50BF91AD5DE7100181BC5 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A50BF81AD5DE7100181BC5 /* Teacher.m */; };
 		382558951AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 382558931AD601B000B91BD0 /* TheIronQuizModel.xcdatamodeld */; };
 		382558981AD6D0E100B91BD0 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 382558971AD6D0E100B91BD0 /* CoreDataStack.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3835B7C81ADDA5F0005AF906 /* _Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3835B7C11ADDA5F0005AF906 /* _Choice.m */; };
+		3835B7C91ADDA5F0005AF906 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 3835B7C31ADDA5F0005AF906 /* _Question.m */; };
+		3835B7CA1ADDA5F0005AF906 /* _Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 3835B7C51ADDA5F0005AF906 /* _Quiz.m */; };
+		3835B7CB1ADDA5F0005AF906 /* _Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3835B7C71ADDA5F0005AF906 /* _Topic.m */; };
 		38F4320A1ADB12D300552473 /* TeachersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F432091ADB12D300552473 /* TeachersViewController.m */; };
 		38F4320D1ADB17E500552473 /* TeachersTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F4320C1ADB17E500552473 /* TeachersTVCell.m */; };
-		5A8B115D1ADC8F8E00849B7F /* _Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B11561ADC8F8E00849B7F /* _Choice.m */; };
-		5A8B115E1ADC8F8E00849B7F /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B11581ADC8F8E00849B7F /* _Question.m */; };
-		5A8B115F1ADC8F8E00849B7F /* _Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B115A1ADC8F8E00849B7F /* _Quiz.m */; };
-		5A8B11601ADC8F8E00849B7F /* _Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B115C1ADC8F8E00849B7F /* _Topic.m */; };
 		5A8B11691ADC8FA300849B7F /* Choice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B11621ADC8FA300849B7F /* Choice.m */; };
 		5A8B116A1ADC8FA300849B7F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B11641ADC8FA300849B7F /* Question.m */; };
 		5A8B116B1ADC8FA300849B7F /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B11661ADC8FA300849B7F /* Quiz.m */; };
@@ -91,18 +91,18 @@
 		382558941AD601B000B91BD0 /* TheIronQuizModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheIronQuizModel.xcdatamodel; sourceTree = "<group>"; };
 		382558961AD6D0E100B91BD0 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		382558971AD6D0E100B91BD0 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		3835B7C01ADDA5F0005AF906 /* _Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Choice.h; path = MOGenerated/_Choice.h; sourceTree = "<group>"; };
+		3835B7C11ADDA5F0005AF906 /* _Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Choice.m; path = MOGenerated/_Choice.m; sourceTree = "<group>"; };
+		3835B7C21ADDA5F0005AF906 /* _Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Question.h; path = MOGenerated/_Question.h; sourceTree = "<group>"; };
+		3835B7C31ADDA5F0005AF906 /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Question.m; path = MOGenerated/_Question.m; sourceTree = "<group>"; };
+		3835B7C41ADDA5F0005AF906 /* _Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Quiz.h; path = MOGenerated/_Quiz.h; sourceTree = "<group>"; };
+		3835B7C51ADDA5F0005AF906 /* _Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Quiz.m; path = MOGenerated/_Quiz.m; sourceTree = "<group>"; };
+		3835B7C61ADDA5F0005AF906 /* _Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Topic.h; path = MOGenerated/_Topic.h; sourceTree = "<group>"; };
+		3835B7C71ADDA5F0005AF906 /* _Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Topic.m; path = MOGenerated/_Topic.m; sourceTree = "<group>"; };
 		38F432081ADB12D300552473 /* TeachersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachersViewController.h; sourceTree = "<group>"; };
 		38F432091ADB12D300552473 /* TeachersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachersViewController.m; sourceTree = "<group>"; };
 		38F4320B1ADB17E500552473 /* TeachersTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachersTVCell.h; sourceTree = "<group>"; };
 		38F4320C1ADB17E500552473 /* TeachersTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachersTVCell.m; sourceTree = "<group>"; };
-		5A8B11551ADC8F8E00849B7F /* _Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Choice.h; path = MOGenerated/_Choice.h; sourceTree = "<group>"; };
-		5A8B11561ADC8F8E00849B7F /* _Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Choice.m; path = MOGenerated/_Choice.m; sourceTree = "<group>"; };
-		5A8B11571ADC8F8E00849B7F /* _Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Question.h; path = MOGenerated/_Question.h; sourceTree = "<group>"; };
-		5A8B11581ADC8F8E00849B7F /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Question.m; path = MOGenerated/_Question.m; sourceTree = "<group>"; };
-		5A8B11591ADC8F8E00849B7F /* _Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Quiz.h; path = MOGenerated/_Quiz.h; sourceTree = "<group>"; };
-		5A8B115A1ADC8F8E00849B7F /* _Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Quiz.m; path = MOGenerated/_Quiz.m; sourceTree = "<group>"; };
-		5A8B115B1ADC8F8E00849B7F /* _Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Topic.h; path = MOGenerated/_Topic.h; sourceTree = "<group>"; };
-		5A8B115C1ADC8F8E00849B7F /* _Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Topic.m; path = MOGenerated/_Topic.m; sourceTree = "<group>"; };
 		5A8B11611ADC8FA300849B7F /* Choice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Choice.h; path = Classes/Choice.h; sourceTree = "<group>"; };
 		5A8B11621ADC8FA300849B7F /* Choice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Choice.m; path = Classes/Choice.m; sourceTree = "<group>"; };
 		5A8B11631ADC8FA300849B7F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Classes/Question.h; sourceTree = "<group>"; };
@@ -206,14 +206,14 @@
 		382558B21AD6D2BC00B91BD0 /* Mogenerated -Do Not Modify- */ = {
 			isa = PBXGroup;
 			children = (
-				5A8B11551ADC8F8E00849B7F /* _Choice.h */,
-				5A8B11561ADC8F8E00849B7F /* _Choice.m */,
-				5A8B11571ADC8F8E00849B7F /* _Question.h */,
-				5A8B11581ADC8F8E00849B7F /* _Question.m */,
-				5A8B11591ADC8F8E00849B7F /* _Quiz.h */,
-				5A8B115A1ADC8F8E00849B7F /* _Quiz.m */,
-				5A8B115B1ADC8F8E00849B7F /* _Topic.h */,
-				5A8B115C1ADC8F8E00849B7F /* _Topic.m */,
+				3835B7C01ADDA5F0005AF906 /* _Choice.h */,
+				3835B7C11ADDA5F0005AF906 /* _Choice.m */,
+				3835B7C21ADDA5F0005AF906 /* _Question.h */,
+				3835B7C31ADDA5F0005AF906 /* _Question.m */,
+				3835B7C41ADDA5F0005AF906 /* _Quiz.h */,
+				3835B7C51ADDA5F0005AF906 /* _Quiz.m */,
+				3835B7C61ADDA5F0005AF906 /* _Topic.h */,
+				3835B7C71ADDA5F0005AF906 /* _Topic.m */,
 			);
 			name = "Mogenerated -Do Not Modify-";
 			sourceTree = "<group>";
@@ -432,13 +432,13 @@
 				18993ED51AD7009000548E44 /* TIQFirebase.m in Sources */,
 				5A8B11691ADC8FA300849B7F /* Choice.m in Sources */,
 				5A8B116B1ADC8FA300849B7F /* Quiz.m in Sources */,
+				3835B7CB1ADDA5F0005AF906 /* _Topic.m in Sources */,
 				188EC8391AD57D3E002CDBA7 /* RootViewController.m in Sources */,
-				5A8B11601ADC8F8E00849B7F /* _Topic.m in Sources */,
-				5A8B115E1ADC8F8E00849B7F /* _Question.m in Sources */,
-				5A8B115D1ADC8F8E00849B7F /* _Choice.m in Sources */,
 				5A8B116A1ADC8FA300849B7F /* Question.m in Sources */,
-				5A8B115F1ADC8F8E00849B7F /* _Quiz.m in Sources */,
+				3835B7C91ADDA5F0005AF906 /* _Question.m in Sources */,
+				3835B7CA1ADDA5F0005AF906 /* _Quiz.m in Sources */,
 				382558981AD6D0E100B91BD0 /* CoreDataStack.m in Sources */,
+				3835B7C81ADDA5F0005AF906 /* _Choice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -563,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
