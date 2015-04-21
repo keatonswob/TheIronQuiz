@@ -106,55 +106,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnswerCell" forIndexPath:indexPath];
     
-    
-    
-//    static NSString *CellIdentifier = @"AnswerCell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-    
     cell.textLabel.text = answerArray[indexPath.row];
-    
-
-        
-//    if ([indexPath row] == 0)
-//    {
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//
-//        UIView *bgColorView = [[UIView alloc] init];
-//        bgColorView.layer.cornerRadius = 7;
-//        bgColorView.layer.masksToBounds = YES;
-//        [bgColorView setBackgroundColor:[UIColor colorWithRed:.85 green:0 blue:0 alpha:1]];
-//        [cell setSelectedBackgroundView:bgColorView];
-//        
-//        UIColor *backColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
-//        cell.backgroundColor = backColor;
-//        UIColor *foreColor = [UIColor colorWithWhite:1 alpha:1];
-//        cell.textLabel.textColor = foreColor;
-//        
-//        cell.textLabel.text = @"row0";
-//        answerModalVC.submitAnswerLabel.text = @"Aaaa";
-//        [answerModalVC updateLabel:@"A"].delegate = self;
-//    }
-//    else if ([indexPath row] == 1)
-//    {
-//        [self.delegate updateLabel:@"B"];
-//    }
-//    else if ([indexPath row] == 2)
-//    {
-//        [self.delegate updateLabel:@"C"];
-//    }
-//    else if ([indexPath row] == 3)
-//    {
-//        [self.delegate updateLabel:@"D"];
-//    }
-//    else if ([indexPath row] == 4)
-//    {
-//        [self.delegate updateLabel:@"E"];
-//}
     
     return cell;
 }
@@ -166,26 +118,18 @@
 
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
-//    self.navigationItem.hidesBackButton = YES;
+    
+    if ([self.nextButton.title isEqualToString:@"Done"])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     [self loadQuestion];
 
 }
 
 - (void)loadQuestion
 {
-//    NSDictionary *answersAndQuestions = [questionArray objectAtIndex:currentQuestion];
-//    NSString *question = [answersAndQuestions objectForKey:@"Question"];
-//    
-//    NSArray *allKeys = [answersAndQuestions allKeys];
-//    for (NSString *aKey in allKeys)
-//    {
-//        NSString *aChoice = [answersAndQuestions objectForKey:aKey];
-//        if ([aKey containsString:@"Answer"])
-//        {
-//            [answerArray addObject:aChoice];
-//        }
-//    }
-//    NSString *question = aQuestion.text;
+
     
     currentQuestion = [questionEnumerator nextObject];
     /* code that acts on the set’s values */
@@ -203,6 +147,7 @@
         [answerArray addObject:aChoiceString];
         /* code that acts on the set’s values */
     }
+
     
     
             
@@ -212,6 +157,12 @@
     self.questionLabel.text = currentQuestion.text;
 
         [self.answerTableView reloadData];
+    }
+    else
+    {
+        self.nextButton.title = @"Done";
+        self.navigationItem.hidesBackButton = YES;
+
     }
 }
 

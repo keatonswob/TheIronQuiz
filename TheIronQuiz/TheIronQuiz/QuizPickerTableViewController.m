@@ -145,8 +145,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         Quiz *aQuiz = quizzes[indexPath.row];
         
-        UINavigationController *navC = [segue destinationViewController];
-        QuestionViewController *questionVC = [navC viewControllers][0];
+        QuestionViewController *questionVC = [segue destinationViewController];
         questionVC.aQuiz = aQuiz;
         
         
