@@ -230,6 +230,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="questionText" destination="wl0-RB-svq" id="74O-We-QOX"/>
+                                            <outlet property="saveTeacherQuestion" destination="hdu-Nd-0c3" id="OXd-3k-t88"/>
                                             <outlet property="teachersAnswerAToQuestion" destination="LNX-GV-0eo" id="oli-Rf-IDa"/>
                                             <outlet property="teachersAnswerBToQuestion" destination="9Lh-9r-GH8" id="Jqy-ye-4NY"/>
                                             <outlet property="teachersAnswerCToQuestion" destination="U1i-Ln-UYe" id="t1n-1u-YRw"/>
