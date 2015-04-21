@@ -24,9 +24,11 @@
 {
     NSMutableArray *questionArray;
     NSMutableArray *answerArray;
-    NSInteger currentQuestion;
     NSInteger selectedAnswer;
     AnswerModalViewController *answerModalVC;
+    Question *currentQuestion;
+    NSEnumerator *questionEnumerator;
+
 }
 
 - (void)viewDidLoad {
@@ -36,49 +38,11 @@
 //    self.QuestionViewController.delegate = self;
     self.answerTableView.delegate = self;
     self.answerTableView.dataSource = self;
-    questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
-    currentQuestion = 0;
-    
-//    Question *aQuestion = [[Question alloc] init];
-//    Choice *aChoice = [[Choice alloc] init];
-//    NSString *questionTextLabel = aQuestion.text;
     NSSet *questions = self.aQuiz.questions;
-    NSLog(@"%@ Here be questions from aQuiz", questions);
-    for (Question *aQuestion in questions)
-    {
-        NSString *aQuestionString = aQuestion.text;
-        [questionArray addObject:aQuestionString];
-        
-//        NSSet *aChoiceSet = aQuestion.choices;
-//        for (Choice *aChoice in aChoiceSet)
-//        {
-//            NSString *aChoiceString = aChoice.text;
-//            [answerArray addObject:aChoiceString];
-//        }
-    }
-//    self.questionLabel.text = questionTextLabel;
-//
-//    aChoice.question = aQuestion;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    NSArray *allKeys = [questions allKeys];
-//    for (NSString *aKey in allKeys)
-//    {
-//        NSDictionary *aQuestion = [questions objectForKey:aKey];
-//        [questionArray addObject:aQuestion];
-//    }
-    
-    
-//    [self.delegate updateLabel:@"A"];
+    questionEnumerator = [questions objectEnumerator];
     [self loadQuestion];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -202,18 +166,9 @@
 
 - (IBAction)nextTapped:(UIBarButtonItem *)sender
 {
-    self.navigationItem.hidesBackButton = YES;
-    currentQuestion++;
-    if (currentQuestion < [questionArray count])
-    {
-        [answerArray removeAllObjects];
-        [self loadQuestion];
-    }
-    else
-    {
-        [self.navigationController popViewControllerAnimated:YES];
-//        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+//    self.navigationItem.hidesBackButton = YES;
+    [self loadQuestion];
+
 }
 
 - (void)loadQuestion
@@ -231,24 +186,33 @@
 //        }
 //    }
 //    NSString *question = aQuestion.text;
-    NSSet *questions = self.aQuiz.questions;
-    for (Question *aQuestion in questions)
+    
+    currentQuestion = [questionEnumerator nextObject];
+    /* code that acts on the set’s values */
+    if (currentQuestion)
     {
-        NSString *question = aQuestion.text;
-        self.questionLabel.text = question;
-       
-        
-        
-        NSSet *aChoiceSet = aQuestion.choices;
-        for (Choice *aChoice in aChoiceSet)
-        {
-            NSString *aChoiceString = aChoice.text;
-            [answerArray addObject:aChoiceString];
-        }
+    NSSet *aChoiceSet = currentQuestion.choices;
+                
+    NSEnumerator *enumeratorNext = [aChoiceSet objectEnumerator];
+    Choice *aChoice;
+    answerArray = nil;
+    answerArray = [[NSMutableArray alloc] init];
+    while ((aChoice = [enumeratorNext nextObject]))
+    {
+        NSString *aChoiceString = aChoice.text;
+        [answerArray addObject:aChoiceString];
+        /* code that acts on the set’s values */
     }
     
-//        self.questionLabel.text = question;
+    
+            
+        
+   // self.questionLabel.text = questionArray[currentQuestion];
+    NSLog(@"%@", answerArray);
+    self.questionLabel.text = currentQuestion.text;
+
         [self.answerTableView reloadData];
+    }
 }
 
 //-(void)updateLabel
