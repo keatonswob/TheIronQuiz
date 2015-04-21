@@ -13,9 +13,8 @@
 #import "Question.h"
 #import "Choice.h"
 #import "Topic.h"
+#import "CoreDataStack.h"
 
-
-#define kOne;
 
 
 
@@ -31,9 +30,15 @@
     NSMutableArray *questionArray;
     NSMutableArray *answerArray;
     
+//    NSMutableArray *quizes;
+    CoreDataStack *cdStack;
+//    NSMutableArray *quizzes;
+//    NSString *quizOne;
+//    NSString *quizTwo;
+//    NSString *quiz;
+    
 }
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveTeacherQuestion;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addTeacherQuestion;
 @property (weak, nonatomic) IBOutlet UITextField *quizID;
 
@@ -46,11 +51,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    // initialize our CoreDataStack model
+    
+    cdStack = [ CoreDataStack coreDataStackWithModelName:@"TheIronQuizModel"];
+    
+    cdStack.coreDataStoreType = CDSStoreTypeSQL;
+    
+//    quizes = [[NSMutableArray alloc]init];
+    
     
     teachersQuestions = [[NSMutableArray alloc]init];
-    teachersChoices = [[NSMutableArray alloc]init];
+    teachersChoices = [[NSMutableArray alloc]init]; // array of dictionarys
+    fourChoices = [[NSMutableDictionary alloc]init];
     teachersTopics = [[NSMutableArray alloc]init];
-    fourChoices = [[NSDictionary alloc]init];
     
     questionArray = [[NSMutableArray alloc] init];
     answerArray = [[NSMutableArray alloc] init];
@@ -90,16 +104,11 @@
    
     Topic *aTopic = teachersTopics[indexPath.row];  //one topic
     Question *aQuestion = teachersQuestions[indexPath.row];//one question
-    Choice *aChoice = teachersChoices[indexPath.row]; // four choices
     
-//    UITextField *topicTextField = (UITextField *)[cell topicOfQuestion]; //description text field
-//    UITextField *teachersQuestionTextField = (UITextField *)[cell questionText ]; //description text field
-//    UITextField *teachersAnswerATextField = (UITextField *)[cell teachersAnswerAToQuestion]; //description text field
-//    UITextField *teachersAnswerBtextField = (UITextField *)[cell teachersAnswerBToQuestion]; //description text field
-//    UITextField *teachersAnswerCtextField = (UITextField *)[cell teachersAnswerCToQuestion]; //description text field
-//    UITextField *teachersAnswerDtextField = (UITextField *)[cell teachersAnswerDToQuestion]; //description text field
-//    
-//    [topicTextField becomeFirstResponder];
+ //  Choice *aChoice = teachersChoices[indexPath.row]; // array holding dictionaries ... each with four choices
+    
+     NSMutableArray *possibleChoices = teachersChoices[indexPath.row]; // array holding dictionaries ... each with four choices
+    
    
     // or similar to TIY in class lessons
     
@@ -113,45 +122,28 @@
     }
     else
     {
-        // fill the cell with the topic
-        
-        [cell.topicOfQuestion setText:aTopic.text];
-    }
-   
     
+        [ cell.questionText nextResponder];
+        
+    }
+        
+//        // fill the cell with the topic
+//        
+//        [cell.topicOfQuestion setText:aTopic.text];
+        
+///       may possibly want to resign first responder here
+    //}
+   
     
     // teacherQuestions is an array consisting of
     //   aQuestion.quiz = self.aQuiz;
     
-    cell.questionText = aQuestion.text;
+//    cell.questionText = aQuestion.text;
    
-    
     // cell.topicOfQuestion.text = aQuiz.?;
     
-    aChoice.question = aQuestion;
+//    aChoice.question = aQuestion;
     
-//    cell.teachersAnswerAToQuestion.text = aQuestion.choice.text;
-//    cell.teachersAnswerAToQuestion.text  = @"123";
-//    cell.teachersAnswerAToQuestion.text  = aQuestion.choices.;
-//      cell.teachersAnswerBToQuestion.text
-//    = aQuestion.choices.question.choice.text;
-//    cell.teachersAnswerCToQuestion.text =
-//    cell.teachersAnswerDToQuestion.text =
-    
-//    City *aCity = cities[indexPath.row];
-//   cell.cityNameLabel.text = aCity.name;
-//    if (aCity.currentWeather)
-//    {
-//        cell.currentConditionsSummaryLabel.text = aCity.currentWeather.summary;
-//        cell.currentTemperatureLabel.text = [aCity.currentWeather currentTemperature];
-//    }
-    
-    //similar to this, but, we have a custom cell.
-////    NSString *itemList = resultsArray[indexPath.row];
-    //    NSString *addressList = resultsArray[1][indexPath.row];
-    
-////    cell.textLabel.text = itemList;
-    //    cell.detailTextLabel.text = addressList;
     
     return cell;
 }
@@ -207,19 +199,7 @@
 }
 */
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
@@ -240,6 +220,24 @@
     
     BOOL rc = NO;
     
+    if([textField.placeholder isEqual: @"Quiz"] )
+    {
+        if ( [textField.text isEqualToString:@""] )
+        {
+            [textField becomeFirstResponder];
+        }
+        else
+        {
+//        Quiz.quiz = textField;
+           
+          rc = YES;
+          [textField resignFirstResponder];
+        }
+        return rc;
+    }
+    
+    
+    
     UIView *contentView = [textField superview];
        
     // what cell are we in, what is its path?
@@ -248,75 +246,82 @@
     TeachersTVCell *cell = (TeachersTVCell *)[contentView superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-        
+    
+    Topic *aTopic = teachersTopics[indexPath.row];  //one topic
     Question *aQuestion = teachersQuestions[indexPath.row];//one question
-    Choice *aChoice = teachersChoices[indexPath.row]; // four choices
+//    Choice *aChoice = teachersChoices[indexPath.row]; // array of dictionaies,
+    Choice *aChoice = teachersChoices[indexPath.row]; // array of dictionaies,
+    //each holding four choices
   
     // shift keyboard input to the name textfield
     //ugg, "text view" does not have a place holder options in sboard
     // this will not work until placeholder is somehow set.
-    if ([textField.placeholder isEqualToString:@"Question"])
+    
+    if (textField == cell.topicOfQuestion)
+    {
+        if( [textField.text isEqualToString:@""])
+        {
+            [cell.questionText becomeFirstResponder];
+        }
+        else
+        {
+
+            // populate the model
+              aTopic.text = textField.text;
+           
+              rc = YES; // yes, text in a textfield completed
+                    
+            [textField resignFirstResponder];
+            [cell.teachersAnswerAToQuestion nextResponder];
+            
+         }
+    }
+    else if (textField == cell.questionText)  // textField vs textView issue
+    {
+        if([textField.text isEqualToString:@""])
+        {
+           [cell.questionText becomeFirstResponder];
+        }
+        else
+        {
+            // if not the question text field,
+            // update the question text.
+            // and resign the keyboard
+               
+            
+            rc = YES; // yes, text in a textfield completed
+                    
+            [textField resignFirstResponder];
+            [cell.teachersAnswerAToQuestion nextResponder];
+            
+          }
+       }
+    else if(textField == cell.teachersAnswerAToQuestion)
        {
            if([textField.text isEqualToString:@""])
            {
-              [cell.questionText becomeFirstResponder];
+               [cell.teachersAnswerAToQuestion becomeFirstResponder];
            }
            else
            {
-               // if not the question text field,
-               // update the question text.
-               // and resign the keyboard
-               
-               aQuestion.text = textField.text;
-                
-               rc = YES; // yes, text in a textfield completed
-                    
-               [textField resignFirstResponder];
-                   
-               // save changes to core data
-                    
-               // [self saveCoreDataUpdates];
-               
+              rc = YES;  //yes we have text in field
+              [textField resignFirstResponder];
+              [cell.teachersAnswerBToQuestion nextResponder];
            }
        }
-    else if([textField.placeholder isEqualToString:@"Answer A"])
+    else if(textField == cell.teachersAnswerBToQuestion)
        {
            if([textField.text isEqualToString:@""])
-               {
-                   [cell.teachersAnswerAToQuestion becomeFirstResponder];
-               }
-               else
-               {
-                  //  aChoice.text = textField.text;
-                   [fourChoices setObject:textField forKey:@"A"];
-                   
-                   // marker1
-                    rc = YES;  //yes we have text in field
-                    [textField resignFirstResponder];
-                    
-                    // save changes to core data
-                    
-                   // self saveCoreDataUpdates];
-               }
+           {
+                [cell.teachersAnswerBToQuestion becomeFirstResponder];
+           }
+           else
+           {
+               [textField resignFirstResponder];
+               [cell.teachersAnswerCToQuestion becomeFirstResponder];
+           }
        }
-    else if([textField.placeholder isEqualToString:@"Answer B"])
-       {
-            if([textField.text isEqualToString:@""])
-               {
-                   [cell.teachersAnswerBToQuestion becomeFirstResponder];
-               }
-               else
-               {
-                   aChoice.text = textField.text;
-                   rc = YES;  //yes we have text in field
-                   [textField resignFirstResponder];
-                    
-                   // save changes to core data
-                    
-                   // self saveCoreDataUpdates];
-               }
-       }
-    else if([textField.placeholder isEqualToString:@"Answer C"])
+    else if( textField == cell.teachersAnswerCToQuestion )
        {
            if([textField.text isEqualToString:@""])
            {
@@ -324,15 +329,15 @@
            }
            else
            {
-              aChoice.text = textField.text;
+               
+             // aChoice.text = textField.text;
               rc = YES;  //yes we have text in field
               [textField resignFirstResponder];
+              [cell.teachersAnswerDToQuestion becomeFirstResponder];
                
-               // save changes to core data
-               //  [self saveCoreDataUpdates];
            }
        }
-    else if([textField.placeholder isEqualToString:@"Answer D"])
+    else if(textField == cell.teachersAnswerDToQuestion )
        {
            if([textField.text isEqualToString:@""])
            {
@@ -340,19 +345,28 @@
            }
            else
            {
-               aChoice.text = textField.text;
-               rc = YES;  //yes we have text in field
-               [textField resignFirstResponder];
+              rc = YES;  //yes we have text in field
+              [textField resignFirstResponder];
                
-                // save changes to core data
-                    
-                // [self saveCoreDataUpdates];
            }
        }
                  
-    }
     
     return rc;
+
 }
 
+#pragma mark - Core Data
+
+- (void)saveCoreDataUpdates
+{
+    [cdStack saveOrFail:^(NSError *errorOrNil)
+     {
+         if (errorOrNil)
+         {
+             NSLog(@"Error from CDStack: %@", [errorOrNil localizedDescription]);
+         }
+     }
+     ];
+}
 @end
