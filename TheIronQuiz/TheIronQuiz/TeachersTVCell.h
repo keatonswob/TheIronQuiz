@@ -10,6 +10,8 @@
 
 @interface TeachersTVCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *saveTeacherQuestion;
+
 @property (weak, nonatomic) IBOutlet UITextField *topicOfQuestion;
 @property (weak, nonatomic) IBOutlet UITextView *questionText;
 @property (weak, nonatomic) IBOutlet UITextField *teachersAnswerAToQuestion;
