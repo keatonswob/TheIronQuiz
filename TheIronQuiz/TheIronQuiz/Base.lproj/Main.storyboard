@@ -299,8 +299,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Zje-ie-R1R" kind="show" identifier="QuestionViewControllerSegue" id="9dX-jZ-fsb"/>
                                     <segue destination="WSV-3m-cEi" kind="presentation" trigger="accessoryAction" id="pMS-tu-jg8"/>
+                                    <segue destination="r1A-zr-OzR" kind="show" identifier="QuestionViewControllerSegue" id="Vh5-jE-seR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -399,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeK-cD-TFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3460" y="454"/>
+            <point key="canvasLocation" x="2776" y="454"/>
         </scene>
         <!--Topic Modal Table View Controller-->
         <scene sceneID="pJY-v3-3Ck">
@@ -498,24 +498,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhg-Po-hE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="626" y="454"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ml8-mP-Jbo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zje-ie-R1R" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rbu-GV-haH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="r1A-zr-OzR" kind="relationship" relationship="rootViewController" id="ZXm-KR-NAd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6UU-Vc-paD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2648" y="454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wsB-dV-Hr5">
