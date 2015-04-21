@@ -44,6 +44,7 @@
 //    Choice *aChoice = [[Choice alloc] init];
 //    NSString *questionTextLabel = aQuestion.text;
     NSSet *questions = self.aQuiz.questions;
+    NSLog(@"%@ Here be questions from aQuiz", questions);
     for (Question *aQuestion in questions)
     {
         NSString *aQuestionString = aQuestion.text;
