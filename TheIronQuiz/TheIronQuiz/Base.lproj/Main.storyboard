@@ -52,7 +52,13 @@
                             <constraint firstItem="dGz-cg-uMq" firstAttribute="bottom" secondItem="QIz-OX-AyT" secondAttribute="top" id="fPv-Ua-4G6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XXk-Is-AtX"/>
+                    <navigationItem key="navigationItem" id="XXk-Is-AtX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="P7R-WF-8zx">
+                            <connections>
+                                <segue destination="cZZ-TZ-IqH" kind="show" identifier="SequeToTeachersViewController" id="BDF-H9-Jo6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="TIQSegueButton" destination="3Rq-g3-cmo" id="8tG-5i-srA"/>
                     </connections>
@@ -269,7 +275,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTeacherQuestion" destination="tdt-v3-fQe" id="wgS-zi-PWH"/>
-                        <outlet property="cancelQuestion" destination="NHy-xW-pit" id="9Wy-FV-zKU"/>
                         <outlet property="quizID" destination="ImY-gN-Akc" id="4hf-Jz-S2N"/>
                     </connections>
                 </viewController>

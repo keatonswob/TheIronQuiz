@@ -40,10 +40,11 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addTeacherQuestion;
+
 @property (weak, nonatomic) IBOutlet UITextField *quizID;
 
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelQuestion;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelQuestion;
 
 @end
 
@@ -119,12 +120,15 @@
        // set keyboard to this field
     
         [cell.topicOfQuestion becomeFirstResponder];
+        
+        NSLog(@"cell.topicOfQuestion is responder");
     }
     else
-    {
-    
-        [ cell.questionText nextResponder];
+    {   // move to Question Textfield from Topic text Field
+        [cell.topicOfQuestion resignFirstResponder];
         
+        [ cell.questionText nextResponder];
+        // after return, go to choice A
     }
         
 //        // fill the cell with the topic
@@ -233,74 +237,78 @@
           rc = YES;
           [textField resignFirstResponder];
         }
-        return rc;
+       // return rc;
     }
     
-    
-    
-    UIView *contentView = [textField superview];
+    else // not Quiz textField
+   
+    {   // we are in the cell
+        
+        UIView *contentView = [textField superview];
        
-    // what cell are we in, what is its path?
-    // (assuming we are only inputing text in this cell)
+        // what cell are we in, what is its path?
+        // (assuming we are only inputing text in this cell)
     
-    TeachersTVCell *cell = (TeachersTVCell *)[contentView superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        TeachersTVCell *cell = (TeachersTVCell *)[contentView superview];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
     
-    Topic *aTopic = teachersTopics[indexPath.row];  //one topic
-    Question *aQuestion = teachersQuestions[indexPath.row];//one question
-//    Choice *aChoice = teachersChoices[indexPath.row]; // array of dictionaies,
-    Choice *aChoice = teachersChoices[indexPath.row]; // array of dictionaies,
-    //each holding four choices
+        Topic *aTopic = teachersTopics[indexPath.row];  //one topic
+        Question *aQuestion = teachersQuestions[indexPath.row];//one question
+//        Choice *aChoice = teachersChoices[indexPath.row]; // array of dictionaies,
+        Choice *aChoice = teachersChoices[indexPath.row]; // array of dictionaies,
+        //each holding four choices
   
-    // shift keyboard input to the name textfield
-    //ugg, "text view" does not have a place holder options in sboard
-    // this will not work until placeholder is somehow set.
+        // shift keyboard input to the name textfield
+        //ugg, "text view" does not have a place holder options in sboard
+        // this will not work until placeholder is somehow set.
     
-    if (textField == cell.topicOfQuestion)
-    {
-        if( [textField.text isEqualToString:@""])
+//        if (textField == cell.topicOfQuestion)
+//       {
+//            if( [textField.text isEqualToString:@""])
+//            {
+//                [cell.questionText becomeFirstResponder];
+//            }
+//            else
+//            {
+//
+//                // populate the model
+//                  aTopic.text = textField.text;
+//           
+//                  rc = YES; // yes, text in a textfield completed
+//                    
+//                [textField resignFirstResponder];
+//                [cell.teachersAnswerAToQuestion nextResponder];
+//            
+//             }
+//        }
+//        
+//        else if (textField == cell.questionText)  // textField vs textView issue
+//        {
+//            if([textField.text isEqualToString:@""])
+//            {
+//               [cell.questionText becomeFirstResponder];
+//            }
+//            else
+//            {
+//                // if not the question text field,
+//                // update the question text.
+//                // and resign the keyboard
+//               
+//            
+//                rc = YES; // yes, text in a textfield completed
+//                    
+//                [textField resignFirstResponder];
+//                [cell.teachersAnswerAToQuestion nextResponder];
+//            
+//              }
+//           }
+        if(textField == cell.teachersAnswerAToQuestion)
         {
-            [cell.questionText becomeFirstResponder];
-        }
-        else
-        {
-
-            // populate the model
-              aTopic.text = textField.text;
-           
-              rc = YES; // yes, text in a textfield completed
-                    
-            [textField resignFirstResponder];
-            [cell.teachersAnswerAToQuestion nextResponder];
-            
-         }
-    }
-    else if (textField == cell.questionText)  // textField vs textView issue
-    {
-        if([textField.text isEqualToString:@""])
-        {
-           [cell.questionText becomeFirstResponder];
-        }
-        else
-        {
-            // if not the question text field,
-            // update the question text.
-            // and resign the keyboard
-               
-            
-            rc = YES; // yes, text in a textfield completed
-                    
-            [textField resignFirstResponder];
-            [cell.teachersAnswerAToQuestion nextResponder];
-            
-          }
-       }
-    else if(textField == cell.teachersAnswerAToQuestion)
-       {
            if([textField.text isEqualToString:@""])
            {
-               [cell.teachersAnswerAToQuestion becomeFirstResponder];
+              [cell.teachersAnswerAToQuestion becomeFirstResponder];
            }
            else
            {
@@ -308,50 +316,49 @@
               [textField resignFirstResponder];
               [cell.teachersAnswerBToQuestion nextResponder];
            }
-       }
-    else if(textField == cell.teachersAnswerBToQuestion)
-       {
-           if([textField.text isEqualToString:@""])
-           {
+        }
+        else if(textField == cell.teachersAnswerBToQuestion)
+        {
+            if([textField.text isEqualToString:@""])
+            {
                 [cell.teachersAnswerBToQuestion becomeFirstResponder];
-           }
-           else
-           {
-               [textField resignFirstResponder];
+            }
+            else
+            {
+                rc = YES;  //yes we have text in field
+                [textField resignFirstResponder];
+                [cell.teachersAnswerCToQuestion becomeFirstResponder];
+            }
+        }
+        else if( textField == cell.teachersAnswerCToQuestion )
+        {
+            if([textField.text isEqualToString:@""])
+            {
                [cell.teachersAnswerCToQuestion becomeFirstResponder];
-           }
-       }
-    else if( textField == cell.teachersAnswerCToQuestion )
-       {
-           if([textField.text isEqualToString:@""])
-           {
-              [cell.teachersAnswerCToQuestion becomeFirstResponder];
-           }
-           else
-           {
-               
-             // aChoice.text = textField.text;
-              rc = YES;  //yes we have text in field
-              [textField resignFirstResponder];
-              [cell.teachersAnswerDToQuestion becomeFirstResponder];
-               
-           }
-       }
-    else if(textField == cell.teachersAnswerDToQuestion )
-       {
-           if([textField.text isEqualToString:@""])
-           {
-              [cell.teachersAnswerDToQuestion becomeFirstResponder];
-           }
-           else
-           {
-              rc = YES;  //yes we have text in field
-              [textField resignFirstResponder];
-               
-           }
-       }
-                 
-    
+            }
+            else
+            {
+           
+               // aChoice.text = textField.text;
+               rc = YES;  //yes we have text in field
+               [textField resignFirstResponder];
+               [cell.teachersAnswerDToQuestion becomeFirstResponder];
+            }
+        }
+        else if(textField == cell.teachersAnswerDToQuestion )
+        {
+            if([textField.text isEqualToString:@""])
+            {
+                [cell.teachersAnswerDToQuestion becomeFirstResponder];
+            }
+            else
+            {
+                rc = YES;  //yes we have text in field
+                [textField resignFirstResponder];
+            }
+        }
+    }
+
     return rc;
 
 }
